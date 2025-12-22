@@ -44,13 +44,13 @@ const Projects = () => {
         
         {/* Projects List */}
         <div className="space-y-16">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <article 
               key={project.title}
-              className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+              className="grid md:grid-cols-2 gap-8 items-center"
             >
               {/* Image */}
-              <div className={`relative ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+              <div className="relative">
                 <div className="rounded-lg overflow-hidden bg-card border border-border shadow-lg">
                   {project.image ? (
                     <img 
@@ -76,7 +76,7 @@ const Projects = () => {
               </div>
               
               {/* Content */}
-              <div className={index % 2 === 1 ? 'md:order-1' : ''}>
+              <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                   {project.title}
                 </h3>
