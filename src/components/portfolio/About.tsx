@@ -10,7 +10,7 @@ const About = () => {
         
         <div className="grid md:grid-cols-2 gap-8">
           <div className="border-gradient p-6 relative z-10 h-full">
-            <div className="space-y-4 text-muted-foreground leading-relaxed text-base">
+            <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
               <p>
                 I'm a Computer Science undergraduate specializing in <span className="text-foreground">Data Science</span> at 
                 SRM Institute of Science and Technology.
@@ -32,7 +32,7 @@ const About = () => {
                 <div className="w-3 h-3 rounded-full bg-primary" />
                 <span className="text-foreground font-medium">Currently Learning</span>
               </div>
-              <p className="text-muted-foreground text-base pl-6">
+              <p className="text-muted-foreground text-lg pl-6">
                 System Design, Advanced DSA, Cloud Architecture
               </p>
               
@@ -40,7 +40,7 @@ const About = () => {
                 <div className="w-3 h-3 rounded-full bg-accent" />
                 <span className="text-foreground font-medium">Education</span>
               </div>
-              <p className="text-muted-foreground text-base pl-6">
+              <p className="text-muted-foreground text-lg pl-6">
                 B.Tech in Computer Science (Data Science)<br />
                 SRM Institute of Science and Technology
               </p>
