@@ -58,13 +58,6 @@ const Projects = () => {
                 key={project.title}
                 className="relative group"
               >
-                {/* Project number indicator */}
-                <div className="absolute left-1/2 -translate-x-1/2 -top-4 z-20 hidden md:flex">
-                  <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-                </div>
-                
                 {/* Card container */}
                 <div className="relative p-6 md:p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 group-hover:-translate-y-1">
                   {/* Corner decorations */}
