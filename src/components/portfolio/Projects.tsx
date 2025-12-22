@@ -1,7 +1,10 @@
 import projectPeterImg from "@/assets/project-peter.png";
-import { ExternalLink, Github, Code2, Sparkles } from "lucide-react";
+import { ExternalLink, Github, Code2 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Projects = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
   const projects = [
     {
       title: "AASO",
@@ -30,15 +33,15 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-12 relative overflow-hidden">
+    <section id="projects" className="py-12 relative overflow-hidden" ref={ref as React.RefObject<HTMLElement>}>
       {/* Background decorative elements */}
       <div className="absolute left-0 top-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-pulse" />
       <div className="absolute right-0 bottom-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in hover:scale-105 transition-transform duration-300 inline-block">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 hover:scale-105 transition-transform duration-300 inline-block">
             Projects<span className="text-primary animate-pulse">.</span>
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-6 rounded-full" />
@@ -50,13 +53,14 @@ const Projects = () => {
         {/* Projects List */}
         <div className="relative">
           {/* Vertical connecting line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-accent/30 to-primary/50 hidden md:block" />
+          <div className={`absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-accent/30 to-primary/50 hidden md:block transition-all duration-1000 ${isVisible ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'}`} style={{ transformOrigin: 'top' }} />
           
           <div className="space-y-20">
             {projects.map((project, index) => (
               <article 
                 key={project.title}
-                className="relative group"
+                className={`relative group transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
+                style={{ transitionDelay: `${(index + 1) * 200}ms` }}
               >
                 {/* Card container */}
                 <div className="relative p-6 md:p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 group-hover:-translate-y-1">
@@ -119,11 +123,10 @@ const Projects = () => {
                       
                       {/* Tech Stack */}
                       <div className="flex flex-wrap gap-2">
-                        {project.tech.map((t, i) => (
+                        {project.tech.map((t) => (
                           <span 
                             key={t} 
                             className="px-4 py-1.5 border border-border/50 text-foreground/80 text-sm rounded-full bg-secondary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 cursor-default"
-                            style={{ animationDelay: `${i * 0.1}s` }}
                           >
                             {t}
                           </span>

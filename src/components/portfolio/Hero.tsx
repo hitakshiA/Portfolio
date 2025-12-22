@@ -1,6 +1,13 @@
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
 const Hero = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <section className="min-h-[80vh] flex items-center justify-center pt-16 relative overflow-hidden">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className="min-h-[80vh] flex items-center justify-center pt-16 relative overflow-hidden"
+    >
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
@@ -8,22 +15,22 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 py-20 relative z-10">
+      <div className={`max-w-5xl mx-auto px-6 py-20 relative z-10 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+        <h1 className={`text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <span className="text-gradient">Hey, I'm Hitakshi Arora</span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-medium">
+        <p className={`text-xl md:text-2xl text-muted-foreground mb-4 font-medium transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           Full-Stack & Android Developer
         </p>
         
-        <p className="text-lg text-muted-foreground max-w-xl mb-6 leading-relaxed">
+        <p className={`text-lg text-muted-foreground max-w-xl mb-6 leading-relaxed transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           Building scalable applications with clean, efficient code. 
           Passionate about solving complex problems and creating impactful products.
         </p>
         
-        <div className="flex flex-wrap gap-4">
+        <div className={`flex flex-wrap gap-4 transition-all duration-700 delay-[400ms] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <a
             href="https://linkedin.com/in/hitakshiaroraa"
             target="_blank"
