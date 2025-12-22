@@ -16,8 +16,7 @@ const Hero = () => {
         </div>
         
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight">
-          Hitakshi<br />
-          <span className="text-gradient">Arora</span>
+          Hey, I'm <span className="text-gradient">Hitakshi Arora</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-medium">
@@ -42,22 +41,22 @@ const Hero = () => {
             href="https://github.com/hitakshiA"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-secondary transition-colors"
+            className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-muted-foreground/50 transition-colors"
           >
             GitHub
           </a>
           <a
             href="mailto:hitakshi220@gmail.com"
-            className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-secondary transition-colors"
+            className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-muted-foreground/50 transition-colors"
           >
             Email
           </a>
           <a
             href="/resume.pdf"
             download
-            className="px-6 py-3 border border-accent/50 text-accent font-medium rounded-lg hover:bg-accent/10 transition-colors"
+            className="px-6 py-3 border border-accent text-accent font-medium rounded-lg hover:bg-accent/10 transition-colors flex items-center gap-2"
           >
-            Resume ↓
+            Resume <span>↓</span>
           </a>
         </div>
       </div>
