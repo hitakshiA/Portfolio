@@ -31,7 +31,7 @@ const Projects = () => {
         "Ratings & Reviews – User-driven feedback for transparency and trust",
         "Personalized Experience – Tailored guidance based on user needs"
       ],
-      github: "https://github.com/Project-Peter-Doma/BigBuddy",
+      github: "https://github.com/hitakshiA/BIGBUDDY",
       image: null,
     },
     {
