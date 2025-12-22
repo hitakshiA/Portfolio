@@ -6,7 +6,7 @@ const Achievements = () => {
   const achievements = [
     {
       title: "DomainFi Challenge Winner",
-      highlight: "$10,000 USDC",
+      highlight: "",
       description: "Won the grand prize in the DomainFi development challenge",
       icon: "🏆",
     },
