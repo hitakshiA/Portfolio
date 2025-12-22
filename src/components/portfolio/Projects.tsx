@@ -15,7 +15,7 @@ const Projects = () => {
         "Real-time vulnerability detection",
         "Detailed vulnerability reports"
       ],
-      github: "https://github.com/Project-Peter-Doma/AASO",
+      github: "https://github.com/hitakshiA/AASO_Extension",
       image: null,
     },
     {
