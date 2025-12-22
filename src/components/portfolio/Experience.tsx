@@ -65,10 +65,10 @@ const Experience = () => {
               <div className="p-6 bg-card rounded-lg border border-border hover:border-accent/30 transition-colors">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-semibold text-foreground">
-                      ISTE Delhi NCR Campus
+                    <h3 className="text-xl font-semibold text-accent">
+                      Technical Team Lead
                     </h3>
-                    <p className="text-accent font-medium">Technical Team Lead</p>
+                    <p className="text-foreground font-medium">ISTE Delhi NCR Campus</p>
                   </div>
                   <span className="text-sm text-muted-foreground font-mono mt-2 md:mt-0">
                     Present
