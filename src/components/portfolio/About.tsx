@@ -1,52 +1,52 @@
 const About = () => {
-  const highlights = [
-    "Data pipelines at scale (4 TB/day)",
-    "Security automation tools",
-    "Android & full-stack development",
-    "Research publication in cloud computing",
-  ];
-
   return (
-    <section id="about" className="section-padding">
-      <div className="container-narrow">
-        <h2 className="flex items-center gap-4 text-2xl font-bold text-foreground mb-10">
-          <span className="text-primary font-mono text-base font-normal">01.</span>
-          About
-          <span className="flex-1 h-px bg-border ml-4" />
-        </h2>
+    <section id="about" className="py-24">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="flex items-center gap-4 mb-12">
+          <span className="text-primary font-mono text-sm">01</span>
+          <h2 className="text-3xl font-bold text-foreground">About Me</h2>
+          <div className="flex-1 h-px bg-border" />
+        </div>
         
-        <div className="grid md:grid-cols-5 gap-12">
-          <div className="md:col-span-3 space-y-5">
-            <p className="text-muted-foreground leading-relaxed">
-              I'm a software engineer who thrives on solving complex problems with clean, 
-              maintainable code. My focus is building systems that scale—whether that's 
-              data pipelines processing terabytes daily or mobile apps connecting students 
-              with mentors.
+        <div className="grid md:grid-cols-2 gap-12">
+          <div className="space-y-6 text-muted-foreground leading-relaxed">
+            <p>
+              I'm a Computer Science undergraduate specializing in <span className="text-foreground">Data Science</span> at 
+              SRM Institute of Science and Technology. My curiosity drives me to explore 
+              the intersection of software development and data engineering.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Currently completing my B.Tech in Computer Science (Data Science) at 
-              SRM Institute of Science and Technology. I've worked on production systems 
-              at the National Informatics Centre and shipped projects that have won 
-              recognition in national competitions.
+            <p>
+              I enjoy building products that solve real problems — from mobile applications 
+              that connect students with mentors to developer tools that automate security checks. 
+              I'm passionate about writing <span className="text-primary">clean, maintainable code</span> and 
+              learning new technologies.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              I care about code quality, user experience, and building things that matter.
+            <p>
+              Currently seeking <span className="text-accent">full-time opportunities</span> where 
+              I can contribute to impactful projects and grow as a developer.
             </p>
           </div>
           
-          <div className="md:col-span-2">
-            <div className="p-5 bg-secondary/50 rounded-md border border-border">
-              <h3 className="text-sm font-medium text-foreground mb-4 uppercase tracking-wider">
-                Highlights
-              </h3>
-              <ul className="space-y-3">
-                {highlights.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <span className="text-primary mt-0.5">▹</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+          <div className="relative">
+            <div className="border-gradient p-6 relative z-10">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 rounded-full bg-primary" />
+                  <span className="text-foreground font-medium">Currently Learning</span>
+                </div>
+                <p className="text-muted-foreground text-sm pl-6">
+                  System Design, Advanced DSA, Cloud Architecture
+                </p>
+                
+                <div className="flex items-center gap-3 pt-4">
+                  <div className="w-3 h-3 rounded-full bg-accent" />
+                  <span className="text-foreground font-medium">Education</span>
+                </div>
+                <p className="text-muted-foreground text-sm pl-6">
+                  B.Tech in Computer Science (Data Science)<br />
+                  SRM Institute of Science and Technology
+                </p>
+              </div>
             </div>
           </div>
         </div>
