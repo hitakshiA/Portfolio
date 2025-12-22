@@ -1,57 +1,33 @@
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Languages",
-      color: "primary",
-      skills: ["Java", "Kotlin", "Python", "JavaScript", "TypeScript", "C++"],
-    },
-    {
-      title: "Mobile",
-      color: "accent",
-      skills: ["Android Development", "XML", "Jetpack Compose"],
-    },
-    {
-      title: "Backend",
-      color: "primary",
-      skills: ["Node.js", "Express.js", "PostgreSQL", "REST APIs"],
-    },
-    {
-      title: "Tools & Core",
-      color: "accent",
-      skills: ["Git", "GitHub", "Google Cloud", "DSA", "DBMS", "OOP"],
-    },
-  ];
+  const skills = {
+    "Core": ["Java", "Kotlin", "Python", "TypeScript", "C++"],
+    "Mobile": ["Android SDK", "Jetpack Compose", "XML"],
+    "Backend": ["Node.js", "Express", "PostgreSQL"],
+    "Tools": ["Git", "Google Cloud", "VS Code API"],
+  };
 
   return (
-    <section id="skills" className="py-24 relative">
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-      
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
-        <div className="flex items-center gap-4 mb-12">
-          <span className="text-primary font-mono text-sm">02</span>
-          <h2 className="text-3xl font-bold text-foreground">Skills</h2>
-          <div className="flex-1 h-px bg-border" />
-        </div>
+    <section className="section-padding bg-secondary/30">
+      <div className="container-narrow">
+        <h2 className="flex items-center gap-4 text-2xl font-bold text-foreground mb-10">
+          <span className="text-primary font-mono text-base font-normal">02.</span>
+          Skills
+          <span className="flex-1 h-px bg-border ml-4" />
+        </h2>
         
-        <div className="grid md:grid-cols-2 gap-8">
-          {skillCategories.map((category) => (
-            <div 
-              key={category.title} 
-              className="p-6 bg-card rounded-lg border border-border hover:border-primary/30 transition-colors group"
-            >
-              <h3 className={`text-lg font-semibold mb-4 ${category.color === 'primary' ? 'text-primary' : 'text-accent'}`}>
-                {category.title}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {Object.entries(skills).map(([category, items]) => (
+            <div key={category}>
+              <h3 className="text-sm font-medium text-foreground mb-4 uppercase tracking-wider">
+                {category}
               </h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 bg-secondary text-foreground text-sm rounded-md font-mono"
-                  >
+              <ul className="space-y-2">
+                {items.map((skill) => (
+                  <li key={skill} className="text-sm text-muted-foreground font-mono">
                     {skill}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </div>
