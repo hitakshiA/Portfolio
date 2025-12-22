@@ -1,44 +1,65 @@
-import { Separator } from "@/components/ui/separator";
-
 const Contact = () => {
   return (
-    <section id="contact" className="py-20">
-      <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-2xl font-semibold text-foreground mb-8">Contact</h2>
-        <Separator className="mb-8" />
-        <p className="text-muted-foreground mb-6">
-          I'm currently looking for full-time opportunities. Feel free to reach out if you'd like to connect.
-        </p>
-        <div className="flex flex-wrap gap-6 text-sm">
-          <a
-            href="mailto:hitakshi@example.com"
-            className="text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
-          >
-            hitakshi@example.com
-          </a>
-          <a
-            href="https://linkedin.com/in/hitakshiarora"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://github.com/Project-Peter-Doma"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href="/resume.pdf"
-            download
-            className="text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
-          >
-            Download Resume
-          </a>
+    <section id="contact" className="py-24 relative">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
+        <div className="flex items-center gap-4 mb-12">
+          <span className="text-primary font-mono text-sm">06</span>
+          <h2 className="text-3xl font-bold text-foreground">Get In Touch</h2>
+          <div className="flex-1 h-px bg-border" />
+        </div>
+        
+        <div className="max-w-2xl">
+          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            I'm currently looking for <span className="text-foreground">full-time opportunities</span> in 
+            software development. Whether you have a question or just want to say hi, 
+            I'll try my best to get back to you!
+          </p>
+          
+          <div className="flex flex-wrap gap-4 mb-12">
+            <a
+              href="mailto:hitakshi@example.com"
+              className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity glow"
+            >
+              Say Hello →
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              className="px-8 py-4 border border-accent text-accent font-semibold rounded-lg hover:bg-accent/10 transition-colors"
+            >
+              Download Resume
+            </a>
+          </div>
+          
+          <div className="flex flex-wrap gap-8 text-muted-foreground">
+            <a
+              href="https://linkedin.com/in/hitakshiarora"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/Project-Peter-Doma"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="mailto:hitakshi@example.com"
+              className="hover:text-primary transition-colors"
+            >
+              hitakshi@example.com
+            </a>
+          </div>
         </div>
       </div>
     </section>
