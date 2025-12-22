@@ -23,14 +23,6 @@ const About = () => {
                 learning new technologies.
               </p>
               <p>
-                As the <span className="text-accent">Technical Team Lead at ISTE Delhi NCR Campus</span>, I lead 
-                developers to build solutions, mentor juniors, and coordinate hackathons and workshops.
-              </p>
-              <p>
-                I thrive in competitive environments — recognized as a <span className="text-primary">DomainFi Challenge Winner ($10,000 USDC)</span> and 
-                reached finals of SBI Life Hack-AI-Thon 2024 among 7,500+ participants.
-              </p>
-              <p>
                 Currently seeking <span className="text-accent">full-time opportunities</span> where 
                 I can contribute to impactful projects and grow as a developer.
               </p>
