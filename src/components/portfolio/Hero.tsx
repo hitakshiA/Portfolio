@@ -31,7 +31,7 @@ const Hero = () => {
         
         <div className="flex flex-wrap gap-4">
           <a
-            href="https://linkedin.com/in/hitakshiarora"
+            href="https://linkedin.com/in/hitakshiaroraa"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:opacity-90 transition-opacity"
@@ -39,7 +39,7 @@ const Hero = () => {
             LinkedIn
           </a>
           <a
-            href="https://github.com/Project-Peter-Doma"
+            href="https://github.com/hitakshiA"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-secondary transition-colors"
@@ -47,7 +47,7 @@ const Hero = () => {
             GitHub
           </a>
           <a
-            href="mailto:hitakshi@example.com"
+            href="mailto:hitakshi220@gmail.com"
             className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-secondary transition-colors"
           >
             Email
