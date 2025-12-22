@@ -1,32 +1,59 @@
-import { Separator } from "@/components/ui/separator";
-
 const Experience = () => {
   return (
-    <section id="experience" className="py-20">
-      <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-2xl font-semibold text-foreground mb-8">Experience</h2>
-        <Separator className="mb-8" />
-        <div>
-          <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-4">
-            <h3 className="text-lg font-medium text-foreground">
-              National Informatics Centre (NIC)
-            </h3>
-            <span className="text-sm text-muted-foreground">
-              June 2025 – August 2025
-            </span>
+    <section id="experience" className="py-24">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="flex items-center gap-4 mb-12">
+          <span className="text-primary font-mono text-sm">03</span>
+          <h2 className="text-3xl font-bold text-foreground">Experience</h2>
+          <div className="flex-1 h-px bg-border" />
+        </div>
+        
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-border md:left-6" />
+          
+          <div className="pl-8 md:pl-16 relative">
+            {/* Timeline dot */}
+            <div className="absolute left-0 top-2 w-3 h-3 rounded-full bg-primary glow md:left-5" />
+            
+            <div className="p-6 bg-card rounded-lg border border-border hover:border-primary/30 transition-colors">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    National Informatics Centre (NIC)
+                  </h3>
+                  <p className="text-primary font-medium">Data Engineering Intern</p>
+                </div>
+                <span className="text-sm text-muted-foreground font-mono mt-2 md:mt-0">
+                  June 2025 – August 2025
+                </span>
+              </div>
+              
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <span className="text-primary mt-1.5">▹</span>
+                  <span>
+                    Engineered data pipelines handling <span className="text-foreground font-medium">4 TB/day</span>, 
+                    ensuring reliable data flow across systems
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary mt-1.5">▹</span>
+                  <span>
+                    Reduced system downtime by <span className="text-foreground font-medium">35%</span> through 
+                    proactive monitoring and optimization
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary mt-1.5">▹</span>
+                  <span>
+                    Improved ETL processing speed by <span className="text-foreground font-medium">45%</span> by 
+                    refactoring legacy transformation scripts
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
-          <p className="text-muted-foreground mb-4">Data Engineering Intern</p>
-          <ul className="space-y-2 text-muted-foreground">
-            <li>
-              Engineered data pipelines handling 4 TB/day, ensuring reliable data flow across systems
-            </li>
-            <li>
-              Reduced system downtime by 35% through proactive monitoring and optimization
-            </li>
-            <li>
-              Improved ETL processing speed by 45% by refactoring legacy transformation scripts
-            </li>
-          </ul>
         </div>
       </div>
     </section>

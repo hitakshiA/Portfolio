@@ -9,7 +9,7 @@ import Contact from "@/components/portfolio/Contact";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Navigation />
       <main>
         <Hero />
@@ -21,8 +21,10 @@ const Index = () => {
         <Contact />
       </main>
       <footer className="py-8 text-center text-sm text-muted-foreground border-t border-border">
-        <div className="max-w-4xl mx-auto px-6">
-          Hitakshi Arora
+        <div className="max-w-5xl mx-auto px-6">
+          <p className="font-mono">
+            Designed & Built by <span className="text-primary">Hitakshi Arora</span>
+          </p>
         </div>
       </footer>
     </div>
