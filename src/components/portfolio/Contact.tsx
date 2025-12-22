@@ -22,7 +22,7 @@ const Contact = () => {
           
           <div className="flex flex-wrap gap-4 mb-12">
             <a
-              href="mailto:hitakshi@example.com"
+              href="mailto:hitakshi220@gmail.com"
               className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity glow"
             >
               Say Hello →
@@ -38,7 +38,7 @@ const Contact = () => {
           
           <div className="flex flex-wrap gap-8 text-muted-foreground">
             <a
-              href="https://linkedin.com/in/hitakshiarora"
+              href="https://linkedin.com/in/hitakshiaroraa"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
@@ -46,7 +46,7 @@ const Contact = () => {
               LinkedIn
             </a>
             <a
-              href="https://github.com/Project-Peter-Doma"
+              href="https://github.com/hitakshiA"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
@@ -54,10 +54,10 @@ const Contact = () => {
               GitHub
             </a>
             <a
-              href="mailto:hitakshi@example.com"
+              href="mailto:hitakshi220@gmail.com"
               className="hover:text-primary transition-colors"
             >
-              hitakshi@example.com
+              hitakshi220@gmail.com
             </a>
           </div>
         </div>
