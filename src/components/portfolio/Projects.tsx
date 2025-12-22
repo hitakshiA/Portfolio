@@ -54,7 +54,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-12 relative">
       <div className="absolute left-0 top-1/3 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
       <div className="absolute right-0 bottom-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       
