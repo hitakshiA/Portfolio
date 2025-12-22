@@ -1,63 +1,68 @@
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="max-w-5xl mx-auto px-6 py-20 relative z-10">
-        <div className="mb-6">
-          <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm text-primary font-mono">
-            Available for opportunities
-          </span>
-        </div>
-        
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight">
-          Hitakshi<br />
-          <span className="text-gradient">Arora</span>
-        </h1>
-        
-        <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-medium">
-          Full-Stack & Android Developer
+    <section className="min-h-screen flex items-center pt-16">
+      <div className="container-narrow py-20 md:py-32">
+        <p className="text-primary font-mono text-sm tracking-wide mb-6">
+          Hi, I'm
         </p>
         
-        <p className="text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed">
-          Building scalable applications with clean, efficient code. 
-          Passionate about solving complex problems and creating impactful products.
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 tracking-tight">
+          Hitakshi Arora
+        </h1>
+        
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-muted-foreground mb-8">
+          I build reliable software.
+        </h2>
+        
+        <p className="text-muted-foreground text-lg md:text-xl max-w-xl mb-12 leading-relaxed">
+          Full-stack and Android developer specializing in scalable applications, 
+          data pipelines, and developer tools. Currently seeking full-time opportunities.
         </p>
         
         <div className="flex flex-wrap gap-4">
           <a
-            href="https://linkedin.com/in/hitakshiaroraa"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:opacity-90 transition-opacity"
+            href="#projects"
+            className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors"
           >
-            LinkedIn
+            View My Work
           </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center px-6 py-3 border border-border text-foreground font-medium rounded-md hover:bg-secondary transition-colors"
+          >
+            Get in Touch
+          </a>
+        </div>
+        
+        <div className="flex items-center gap-6 mt-16 pt-8 border-t border-border">
           <a
             href="https://github.com/hitakshiA"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-secondary transition-colors"
+            className="text-muted-foreground hover:text-foreground transition-colors link-underline text-sm font-medium"
           >
             GitHub
           </a>
           <a
+            href="https://linkedin.com/in/hitakshiaroraa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors link-underline text-sm font-medium"
+          >
+            LinkedIn
+          </a>
+          <a
             href="mailto:hitakshi220@gmail.com"
-            className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-secondary transition-colors"
+            className="text-muted-foreground hover:text-foreground transition-colors link-underline text-sm font-medium"
           >
             Email
           </a>
           <a
             href="/resume.pdf"
             download
-            className="px-6 py-3 border border-accent/50 text-accent font-medium rounded-lg hover:bg-accent/10 transition-colors"
+            className="text-muted-foreground hover:text-foreground transition-colors link-underline text-sm font-medium"
           >
-            Resume ↓
+            Resume
           </a>
         </div>
       </div>
