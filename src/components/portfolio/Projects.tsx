@@ -1,4 +1,5 @@
 import projectPeterImg from "@/assets/project-peter.png";
+import aasoScreenshot from "@/assets/aaso-screenshot.png";
 import { ExternalLink, Github, Code2 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
@@ -12,7 +13,7 @@ const Projects = () => {
       description: "AASO (Automated Application Security Optimizer) is a Visual Studio Code extension that helps developers identify and fix security vulnerabilities in their code using multiple scanning tools including Snyk, SonarQube, and AI-powered analysis with Gemini.",
       github: "https://github.com/hitakshiA/AASO_Extension",
       liveUrl: null,
-      image: null,
+      image: aasoScreenshot,
     },
     {
       title: "BigBuddy",
