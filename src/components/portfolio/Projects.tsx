@@ -1,3 +1,5 @@
+import projectPeterImg from "@/assets/project-peter.png";
+
 const Projects = () => {
   const projects = [
     {
@@ -14,7 +16,7 @@ const Projects = () => {
         "Detailed vulnerability reports"
       ],
       github: "https://github.com/Project-Peter-Doma/AASO",
-      image: null, // Placeholder for future image
+      image: null,
     },
     {
       title: "BigBuddy",
@@ -47,7 +49,7 @@ const Projects = () => {
       ],
       github: "https://github.com/Project-Peter-Doma",
       liveUrl: "https://www.projectpeter.xyz",
-      image: null,
+      image: projectPeterImg,
     },
   ];
 
