@@ -3,7 +3,9 @@ const About = () => {
     <section id="about" className="py-24">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground">About Me</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground animate-fade-in hover:scale-105 transition-transform duration-300 inline-block">
+            About Me<span className="text-primary animate-pulse">.</span>
+          </h2>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12">

@@ -8,7 +8,9 @@ const Contact = () => {
       
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground">Get In Touch</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground animate-fade-in hover:scale-105 transition-transform duration-300 inline-block">
+            Get In Touch<span className="text-primary animate-pulse">.</span>
+          </h2>
         </div>
         
         <div className="max-w-2xl mx-auto text-center">

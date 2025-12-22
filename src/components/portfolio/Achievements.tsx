@@ -24,7 +24,9 @@ const Achievements = () => {
     <section id="achievements" className="py-24">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground">Achievements</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground animate-fade-in hover:scale-105 transition-transform duration-300 inline-block">
+            Achievements<span className="text-primary animate-pulse">.</span>
+          </h2>
         </div>
         
         <div className="grid md:grid-cols-3 gap-6">
