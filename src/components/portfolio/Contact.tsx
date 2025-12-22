@@ -30,18 +30,18 @@ const Contact = () => {
             <a
               href="/resume.pdf"
               download
-              className="px-8 py-4 border border-accent text-accent font-semibold rounded-lg hover:bg-accent/10 transition-colors"
+              className="px-8 py-4 border border-border text-foreground font-semibold rounded-lg hover:border-muted-foreground/50 transition-colors"
             >
               Download Resume
             </a>
           </div>
           
-          <div className="flex flex-wrap gap-8 text-muted-foreground">
+          <div className="flex flex-wrap gap-4">
             <a
               href="https://linkedin.com/in/hitakshiaroraa"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:opacity-90 transition-opacity"
             >
               LinkedIn
             </a>
@@ -49,15 +49,15 @@ const Contact = () => {
               href="https://github.com/hitakshiA"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-muted-foreground/50 transition-colors"
             >
               GitHub
             </a>
             <a
               href="mailto:hitakshi220@gmail.com"
-              className="hover:text-primary transition-colors"
+              className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-muted-foreground/50 transition-colors"
             >
-              hitakshi220@gmail.com
+              Email
             </a>
           </div>
         </div>
