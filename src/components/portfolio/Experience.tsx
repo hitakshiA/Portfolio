@@ -3,7 +3,9 @@ const Experience = () => {
     <section id="experience" className="py-24">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground">Experience</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground animate-fade-in hover:scale-105 transition-transform duration-300 inline-block">
+            Experience<span className="text-primary animate-pulse">.</span>
+          </h2>
         </div>
         
         <div className="relative">
