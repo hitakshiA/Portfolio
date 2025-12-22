@@ -87,7 +87,7 @@ const Projects = () => {
               </div>
               
               {/* Project Description */}
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6 max-w-4xl font-mono">
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6 max-w-4xl">
                 {project.description}
               </p>
               
