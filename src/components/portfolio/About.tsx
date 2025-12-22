@@ -48,8 +48,23 @@ const About = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
+            {/* Animated green border */}
+            <motion.div
+              className="absolute -inset-[2px] rounded-lg bg-gradient-to-r from-primary via-primary/50 to-primary opacity-75"
+              animate={{
+                background: [
+                  "linear-gradient(0deg, hsl(150 80% 50%), hsl(150 80% 50% / 0.3), hsl(150 80% 50%))",
+                  "linear-gradient(90deg, hsl(150 80% 50%), hsl(150 80% 50% / 0.3), hsl(150 80% 50%))",
+                  "linear-gradient(180deg, hsl(150 80% 50%), hsl(150 80% 50% / 0.3), hsl(150 80% 50%))",
+                  "linear-gradient(270deg, hsl(150 80% 50%), hsl(150 80% 50% / 0.3), hsl(150 80% 50%))",
+                  "linear-gradient(360deg, hsl(150 80% 50%), hsl(150 80% 50% / 0.3), hsl(150 80% 50%))",
+                ],
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            />
+            
             <motion.div 
-              className="border-gradient p-6 relative z-10"
+              className="relative p-6 bg-card rounded-lg z-10"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
