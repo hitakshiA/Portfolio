@@ -10,15 +10,15 @@ const Hero = () => {
 
       <div className="max-w-5xl mx-auto px-6 py-20 relative z-10">
         
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight">
-          Hey, I'm <span className="text-gradient">Hitakshi Arora</span>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+          <span className="text-gradient">Hey, I'm Hitakshi Arora</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-medium">
           Full-Stack & Android Developer
         </p>
         
-        <p className="text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed">
+        <p className="text-lg text-muted-foreground max-w-xl mb-6 leading-relaxed">
           Building scalable applications with clean, efficient code. 
           Passionate about solving complex problems and creating impactful products.
         </p>
@@ -28,7 +28,7 @@ const Hero = () => {
             href="https://linkedin.com/in/hitakshiaroraa"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:opacity-90 transition-opacity"
+            className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-primary hover:text-primary transition-colors"
           >
             LinkedIn
           </a>
@@ -36,20 +36,20 @@ const Hero = () => {
             href="https://github.com/hitakshiA"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-muted-foreground/50 transition-colors"
+            className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-primary hover:text-primary transition-colors"
           >
             GitHub
           </a>
           <a
             href="mailto:hitakshi220@gmail.com"
-            className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-muted-foreground/50 transition-colors"
+            className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-primary hover:text-primary transition-colors"
           >
             Email
           </a>
           <a
             href="/resume.pdf"
             download
-            className="px-6 py-3 border border-accent text-accent font-medium rounded-lg hover:bg-accent/10 transition-colors flex items-center gap-2"
+            className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-primary hover:text-primary transition-colors flex items-center gap-2"
           >
             Resume <span>↓</span>
           </a>
