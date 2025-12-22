@@ -60,11 +60,11 @@ const Projects = () => {
       
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="mb-16">
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Featured Projects<span className="text-primary">.</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Highlighting my latest work: security innovation, mentorship platforms, and AI-powered solutions.
           </p>
         </div>

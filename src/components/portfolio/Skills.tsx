@@ -27,10 +27,8 @@ const Skills = () => {
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
       
       <div className="max-w-5xl mx-auto px-6 relative z-10">
-        <div className="flex items-center gap-4 mb-12">
-          <span className="text-primary font-mono text-sm">02</span>
+        <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-foreground">Skills</h2>
-          <div className="flex-1 h-px bg-border" />
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">
