@@ -1,15 +1,29 @@
+import { motion } from "framer-motion";
+
 const About = () => {
   return (
     <section id="about" className="py-24">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground animate-fade-in hover:scale-105 transition-transform duration-300 inline-block">
-            About Me<span className="text-primary animate-pulse">.</span>
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground inline-block">
+            About Me<span className="text-primary">.</span>
           </h2>
-        </div>
+        </motion.div>
         
         <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-6 text-muted-foreground leading-relaxed">
+          <motion.div 
+            className="space-y-6 text-muted-foreground leading-relaxed"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <p>
               I'm a Computer Science undergraduate specializing in <span className="text-foreground">Data Science</span> at 
               SRM Institute of Science and Technology. My curiosity drives me to explore 
@@ -25,30 +39,60 @@ const About = () => {
               Currently seeking <span className="text-accent">full-time opportunities</span> where 
               I can contribute to impactful projects and grow as a developer.
             </p>
-          </div>
+          </motion.div>
           
-          <div className="relative">
-            <div className="border-gradient p-6 relative z-10">
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <motion.div 
+              className="border-gradient p-6 relative z-10"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-primary" />
+                <motion.div 
+                  className="flex items-center gap-3"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 }}
+                >
+                  <motion.div 
+                    className="w-3 h-3 rounded-full bg-primary"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
                   <span className="text-foreground font-medium">Currently Learning</span>
-                </div>
+                </motion.div>
                 <p className="text-muted-foreground text-sm pl-6">
                   System Design, Advanced DSA, Cloud Architecture
                 </p>
                 
-                <div className="flex items-center gap-3 pt-4">
-                  <div className="w-3 h-3 rounded-full bg-accent" />
+                <motion.div 
+                  className="flex items-center gap-3 pt-4"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.8 }}
+                >
+                  <motion.div 
+                    className="w-3 h-3 rounded-full bg-accent"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                  />
                   <span className="text-foreground font-medium">Education</span>
-                </div>
+                </motion.div>
                 <p className="text-muted-foreground text-sm pl-6">
                   B.Tech in Computer Science (Data Science)<br />
                   SRM Institute of Science and Technology
                 </p>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
