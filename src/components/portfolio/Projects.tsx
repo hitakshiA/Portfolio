@@ -1,10 +1,13 @@
+import { useState } from "react";
 import projectPeterImg from "@/assets/project-peter.png";
 import aasoScreenshot from "@/assets/aaso-screenshot.png";
-import { ExternalLink, Github, Code2 } from "lucide-react";
+import { ExternalLink, Github, Code2, ZoomIn } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import ImageLightbox from "./ImageLightbox";
 
 const Projects = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
 
   const projects = [
     {
@@ -33,8 +36,20 @@ const Projects = () => {
     },
   ];
 
+  const handleImageClick = (src: string, alt: string) => {
+    setLightboxImage({ src, alt });
+  };
+
   return (
     <section id="projects" className="py-12 relative overflow-hidden" ref={ref as React.RefObject<HTMLElement>}>
+      {/* Lightbox */}
+      <ImageLightbox
+        src={lightboxImage?.src || ""}
+        alt={lightboxImage?.alt || ""}
+        isOpen={!!lightboxImage}
+        onClose={() => setLightboxImage(null)}
+      />
+
       {/* Background decorative elements */}
       <div className="absolute left-0 top-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-pulse" />
       <div className="absolute right-0 bottom-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -77,13 +92,24 @@ const Projects = () => {
                   <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
                     {/* Image */}
                     <div className="relative">
-                      <div className="rounded-xl overflow-hidden bg-card border border-border shadow-2xl group-hover:shadow-primary/10 transition-shadow duration-500 transform group-hover:scale-[1.02] transition-transform">
+                      <div 
+                        className={`rounded-xl overflow-hidden bg-card border border-border shadow-2xl group-hover:shadow-primary/10 transition-all duration-500 transform group-hover:scale-[1.02] ${project.image ? 'cursor-zoom-in' : ''}`}
+                        onClick={() => project.image && handleImageClick(project.image, `${project.title} screenshot`)}
+                      >
                         {project.image ? (
-                          <img 
-                            src={project.image} 
-                            alt={`${project.title} screenshot`}
-                            className="w-full h-auto object-cover"
-                          />
+                          <div className="relative">
+                            <img 
+                              src={project.image} 
+                              alt={`${project.title} screenshot`}
+                              className="w-full h-auto object-cover"
+                            />
+                            {/* Zoom indicator */}
+                            <div className="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                              <div className="p-3 rounded-full bg-primary text-primary-foreground">
+                                <ZoomIn className="w-6 h-6" />
+                              </div>
+                            </div>
+                          </div>
                         ) : (
                           <div className="aspect-video flex items-center justify-center bg-gradient-to-br from-muted/50 to-muted relative overflow-hidden">
                             {/* Animated grid pattern */}
@@ -105,7 +131,7 @@ const Projects = () => {
                         )}
                         
                         {/* Image overlay on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                       </div>
                       
                       {/* Floating decorative elements */}
