@@ -11,14 +11,14 @@ const Contact = () => {
           <h2 className="text-3xl font-bold text-foreground">Get In Touch</h2>
         </div>
         
-        <div className="max-w-2xl">
+        <div className="max-w-2xl mx-auto text-center">
           <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
             I'm currently looking for <span className="text-foreground">full-time opportunities</span> in 
             software development. Whether you have a question or just want to say hi, 
             I'll try my best to get back to you!
           </p>
           
-          <div className="flex flex-wrap gap-4 mb-12">
+          <div className="flex flex-wrap gap-4 justify-center">
             <a
               href="mailto:hitakshi220@gmail.com"
               className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity glow"
@@ -31,31 +31,6 @@ const Contact = () => {
               className="px-8 py-4 border border-border text-foreground font-semibold rounded-lg hover:border-muted-foreground/50 transition-colors"
             >
               Download Resume
-            </a>
-          </div>
-          
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="https://linkedin.com/in/hitakshiaroraa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:opacity-90 transition-opacity"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/hitakshiA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-muted-foreground/50 transition-colors"
-            >
-              GitHub
-            </a>
-            <a
-              href="mailto:hitakshi220@gmail.com"
-              className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-muted-foreground/50 transition-colors"
-            >
-              Email
             </a>
           </div>
         </div>
