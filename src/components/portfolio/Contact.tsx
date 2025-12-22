@@ -7,10 +7,8 @@ const Contact = () => {
       </div>
       
       <div className="max-w-5xl mx-auto px-6 relative z-10">
-        <div className="flex items-center gap-4 mb-12">
-          <span className="text-primary font-mono text-sm">06</span>
+        <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-foreground">Get In Touch</h2>
-          <div className="flex-1 h-px bg-border" />
         </div>
         
         <div className="max-w-2xl">
