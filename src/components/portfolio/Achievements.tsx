@@ -43,7 +43,7 @@ const Achievements = () => {
               <div className={`text-4xl mb-4 transition-all duration-500 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`} style={{ transitionDelay: `${(index + 1) * 150 + 200}ms` }}>
                 {achievement.icon}
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
+              <h3 className="text-lg font-semibold text-primary mb-1 group-hover:text-accent transition-colors">
                 {achievement.title}
               </h3>
               <p className="text-accent font-mono text-sm mb-3">{achievement.highlight}</p>
