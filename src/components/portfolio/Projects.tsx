@@ -100,11 +100,11 @@ const Projects = () => {
                         onClick={() => project.image && handleImageClick(project.image, `${project.title} screenshot`)}
                       >
                         {project.image ? (
-                          <div className="relative">
+                          <div className="relative aspect-video overflow-hidden">
                             <img 
                               src={project.image} 
                               alt={`${project.title} screenshot`}
-                              className="w-full h-auto object-cover"
+                              className="w-full h-full object-cover object-top"
                             />
                             {/* Zoom indicator */}
                             <div className="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 hover:opacity-100 transition-opacity duration-300">
