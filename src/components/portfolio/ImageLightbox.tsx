@@ -51,7 +51,6 @@ const ImageLightbox = ({ src, alt, isOpen, onClose }: ImageLightboxProps) => {
           alt={alt}
           className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-border/50"
         />
-        <p className="text-center text-muted-foreground mt-4 text-sm">{alt}</p>
       </div>
     </div>
   );
