@@ -1,6 +1,8 @@
 import { useState } from "react";
 import projectPeterImg from "@/assets/project-peter.png";
 import aasoScreenshot from "@/assets/aaso-screenshot.png";
+import bigbuddyLogin from "@/assets/bigbuddy-login.png";
+import bigbuddySearch from "@/assets/bigbuddy-search.png";
 import { ExternalLink, Github, Code2, ZoomIn } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import ImageLightbox from "./ImageLightbox";
@@ -24,7 +26,8 @@ const Projects = () => {
       description: "A mentorship and guidance mobile application designed to bridge the gap between users and domain experts. Provides personalized support in mental health, career planning, and skill development.",
       github: "https://github.com/hitakshiA/BIGBUDDY",
       liveUrl: null,
-      image: null,
+      image: bigbuddyLogin,
+      images: [bigbuddyLogin, bigbuddySearch],
     },
     {
       title: "Project P.E.T.E.R.",
