@@ -3,6 +3,8 @@ import projectPeterImg from "@/assets/project-peter.png";
 import aasoScreenshot from "@/assets/aaso-screenshot.png";
 import bigbuddyLogin from "@/assets/bigbuddy-login.png";
 import bigbuddySearch from "@/assets/bigbuddy-search.png";
+import bigbuddySchedule from "@/assets/bigbuddy-schedule.png";
+import bigbuddyReviews from "@/assets/bigbuddy-reviews.png";
 import { ExternalLink, Github, Code2, ZoomIn } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import ImageLightbox from "./ImageLightbox";
@@ -27,7 +29,7 @@ const Projects = () => {
       github: "https://github.com/hitakshiA/BIGBUDDY",
       liveUrl: null,
       image: bigbuddyLogin,
-      images: [bigbuddyLogin, bigbuddySearch],
+      images: [bigbuddyLogin, bigbuddySearch, bigbuddySchedule, bigbuddyReviews],
     },
     {
       title: "Project P.E.T.E.R.",
@@ -100,11 +102,11 @@ const Projects = () => {
                         onClick={() => project.image && handleImageClick(project.image, `${project.title} screenshot`)}
                       >
                         {project.images && project.images.length > 1 ? (
-                          <div className="relative aspect-video overflow-hidden flex items-center justify-center gap-3 bg-gradient-to-br from-muted/30 to-muted/50 p-4">
+                          <div className="relative aspect-video overflow-hidden flex items-stretch justify-center bg-gradient-to-br from-muted/30 to-muted/50">
                             {project.images.map((img, imgIndex) => (
                               <div 
                                 key={imgIndex}
-                                className="relative h-full cursor-zoom-in group/img"
+                                className="relative flex-1 cursor-zoom-in group/img overflow-hidden"
                                 onClick={(e) => {
                                   e.stopPropagation();
                                   handleImageClick(img, `${project.title} screenshot ${imgIndex + 1}`);
@@ -113,9 +115,9 @@ const Projects = () => {
                                 <img 
                                   src={img} 
                                   alt={`${project.title} screenshot ${imgIndex + 1}`}
-                                  className="h-full w-auto object-contain rounded-lg shadow-lg border border-border/30"
+                                  className="w-full h-full object-cover object-top"
                                 />
-                                <div className="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 rounded-lg">
+                                <div className="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300">
                                   <div className="p-2 rounded-full bg-primary text-primary-foreground">
                                     <ZoomIn className="w-4 h-4" />
                                   </div>
