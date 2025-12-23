@@ -99,7 +99,31 @@ const Projects = () => {
                         className={`rounded-xl overflow-hidden bg-card border border-border shadow-2xl group-hover:shadow-primary/10 transition-all duration-500 transform group-hover:scale-[1.02] ${project.image ? 'cursor-zoom-in' : ''}`}
                         onClick={() => project.image && handleImageClick(project.image, `${project.title} screenshot`)}
                       >
-                        {project.image ? (
+                        {project.images && project.images.length > 1 ? (
+                          <div className="relative aspect-video overflow-hidden flex items-center justify-center gap-3 bg-gradient-to-br from-muted/30 to-muted/50 p-4">
+                            {project.images.map((img, imgIndex) => (
+                              <div 
+                                key={imgIndex}
+                                className="relative h-full cursor-zoom-in group/img"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleImageClick(img, `${project.title} screenshot ${imgIndex + 1}`);
+                                }}
+                              >
+                                <img 
+                                  src={img} 
+                                  alt={`${project.title} screenshot ${imgIndex + 1}`}
+                                  className="h-full w-auto object-contain rounded-lg shadow-lg border border-border/30"
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 rounded-lg">
+                                  <div className="p-2 rounded-full bg-primary text-primary-foreground">
+                                    <ZoomIn className="w-4 h-4" />
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        ) : project.image ? (
                           <div className="relative aspect-video overflow-hidden">
                             <img 
                               src={project.image} 
