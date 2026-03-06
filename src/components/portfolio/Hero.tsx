@@ -44,7 +44,7 @@ const Hero = () => {
         {/* Photo */}
         <div className={`flex-shrink-0 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
-            <img src={hitakshiPhoto} alt="Hitakshi Arora" className="w-full h-full object-cover object-top" />
+            <img src={hitakshiPhoto} alt="Hitakshi Arora" className="w-full h-full object-cover object-[center_15%]" />
           </div>
         </div>
       </div>
