@@ -5,10 +5,10 @@ const Hero = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <section 
+    <section
       ref={ref as React.RefObject<HTMLElement>}
-      className="min-h-[80vh] flex items-center justify-center pt-16 relative overflow-hidden"
-    >
+      className="min-h-[80vh] flex items-center justify-center pt-16 relative overflow-hidden">
+      
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
@@ -44,12 +44,12 @@ const Hero = () => {
         {/* Photo */}
         <div className={`flex-shrink-0 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <div className="w-56 h-56 md:w-72 md:h-72 overflow-hidden border-4 border-primary/20 shadow-2xl" style={{ borderRadius: '50% 50% 50% 50% / 55% 55% 10% 10%' }}>
-            <img src={hitakshiPhoto} alt="Hitakshi Arora" className="w-full h-full object-cover object-top scale-110 -translate-y-8" />
+            <img src={hitakshiPhoto} alt="Hitakshi Arora" className="w-full h-full object-cover object-top scale-110 -translate-y-8 border-dashed border-8 shadow-sm rounded-none" />
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default Hero;
