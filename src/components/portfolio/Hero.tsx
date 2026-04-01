@@ -37,7 +37,7 @@ const Hero = () => {
             <a href="https://linkedin.com/in/hitakshiaroraa" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-primary hover:text-primary transition-colors">LinkedIn</a>
             <a href="https://github.com/hitakshiA" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-primary hover:text-primary transition-colors">GitHub</a>
             <a href="mailto:hitakshi220@gmail.com" className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-primary hover:text-primary transition-colors">Email</a>
-            <a href="/resume.pdf" download className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-primary hover:text-primary transition-colors flex items-center gap-2">Resume <span>↓</span></a>
+            <a href="/resume" className="px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:border-primary hover:text-primary transition-colors flex items-center gap-2">Resume <span>↗</span></a>
           </div>
         </div>
 
