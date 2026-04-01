@@ -32,11 +32,10 @@ const Contact = () => {
               Say Hello →
             </a>
             <a
-              href="/resume.pdf"
-              download
+              href="/resume"
               className="px-8 py-4 border border-border text-foreground font-semibold rounded-lg hover:border-muted-foreground/50 transition-colors"
             >
-              Download Resume
+              View Resume
             </a>
           </div>
         </div>
