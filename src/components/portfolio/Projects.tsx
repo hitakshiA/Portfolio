@@ -5,12 +5,10 @@ import bigbuddyLogin from "@/assets/bigbuddy-login.png";
 import bigbuddySearch from "@/assets/bigbuddy-search.png";
 import bigbuddySchedule from "@/assets/bigbuddy-schedule.png";
 import bigbuddyReviews from "@/assets/bigbuddy-reviews.png";
-import { ExternalLink, Github, Code2, ZoomIn } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { ExternalLink, Github } from "lucide-react";
 import ImageLightbox from "./ImageLightbox";
 
 const Projects = () => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
   const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
 
   const projects = [
@@ -41,13 +39,8 @@ const Projects = () => {
     },
   ];
 
-  const handleImageClick = (src: string, alt: string) => {
-    setLightboxImage({ src, alt });
-  };
-
   return (
-    <section id="projects" className="py-12 relative overflow-hidden" ref={ref as React.RefObject<HTMLElement>}>
-      {/* Lightbox */}
+    <section id="projects" className="py-16 border-b-2 border-foreground">
       <ImageLightbox
         src={lightboxImage?.src || ""}
         alt={lightboxImage?.alt || ""}
@@ -55,183 +48,95 @@ const Projects = () => {
         onClose={() => setLightboxImage(null)}
       />
 
-      {/* Background decorative elements */}
-      <div className="absolute left-0 top-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute right-0 bottom-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
-        {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 hover:scale-105 transition-transform duration-300 inline-block">
-            Projects<span className="text-primary animate-pulse">.</span>
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-6 rounded-full" />
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Explore a selection of my recent work, showcasing my skills in full stack development.
-          </p>
-        </div>
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="section-heading mb-16">
+          MY <span className="highlight">WORK</span>
+        </h2>
         
-        {/* Projects List */}
-        <div className="relative">
-          {/* Vertical connecting line */}
-          <div className={`absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-accent/30 to-primary/50 hidden md:block transition-all duration-1000 ${isVisible ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'}`} style={{ transformOrigin: 'top' }} />
-          
-          <div className="space-y-20">
-            {projects.map((project, index) => (
-              <article 
-                key={project.title}
-                className={`relative group transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
-                style={{ transitionDelay: `${(index + 1) * 200}ms` }}
-              >
-                {/* Card container */}
-                <div className="relative p-6 md:p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 group-hover:-translate-y-1">
-                  {/* Corner decorations */}
-                  <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-primary/30 rounded-tl-2xl transition-colors group-hover:border-primary/60" />
-                  <div className="absolute top-0 right-0 w-16 h-16 border-r-2 border-t-2 border-accent/30 rounded-tr-2xl transition-colors group-hover:border-accent/60" />
-                  <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-accent/30 rounded-bl-2xl transition-colors group-hover:border-accent/60" />
-                  <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-primary/30 rounded-br-2xl transition-colors group-hover:border-primary/60" />
-                  
-                  {/* Glow effect on hover */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
-                    {/* Image */}
-                    <div className="relative">
-                      <div 
-                        className={`rounded-xl overflow-hidden bg-card border border-border shadow-2xl group-hover:shadow-primary/10 transition-all duration-500 transform group-hover:scale-[1.02] ${project.image ? 'cursor-zoom-in' : ''}`}
-                        onClick={() => project.image && handleImageClick(project.image, `${project.title} screenshot`)}
-                      >
-                        {project.images && project.images.length > 1 ? (
-                          <div className="relative aspect-video overflow-hidden flex items-stretch justify-center bg-gradient-to-br from-muted/30 to-muted/50">
-                            {project.images.map((img, imgIndex) => (
-                              <div 
-                                key={imgIndex}
-                                className="relative flex-1 cursor-zoom-in group/img overflow-hidden"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handleImageClick(img, `${project.title} screenshot ${imgIndex + 1}`);
-                                }}
-                              >
-                                <img 
-                                  src={img} 
-                                  alt={`${project.title} screenshot ${imgIndex + 1}`}
-                                  className="w-full h-full object-cover object-top"
-                                />
-                                <div className="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300">
-                                  <div className="p-2 rounded-full bg-primary text-primary-foreground">
-                                    <ZoomIn className="w-4 h-4" />
-                                  </div>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        ) : project.image ? (
-                          <div className="relative aspect-video overflow-hidden">
-                            <img 
-                              src={project.image} 
-                              alt={`${project.title} screenshot`}
-                              className="w-full h-full object-cover object-top"
-                            />
-                            {/* Zoom indicator */}
-                            <div className="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                              <div className="p-3 rounded-full bg-primary text-primary-foreground">
-                                <ZoomIn className="w-6 h-6" />
-                              </div>
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="aspect-video flex items-center justify-center bg-gradient-to-br from-muted/50 to-muted relative overflow-hidden">
-                            {/* Animated grid pattern */}
-                            <div className="absolute inset-0 opacity-20">
-                              <div className="absolute inset-0" style={{
-                                backgroundImage: 'linear-gradient(hsl(var(--primary)/0.3) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)/0.3) 1px, transparent 1px)',
-                                backgroundSize: '20px 20px'
-                              }} />
-                            </div>
-                            <div className="text-center p-8 relative z-10">
-                              <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                                <Code2 className="w-10 h-10 text-primary/50 group-hover:text-primary transition-colors" />
-                              </div>
-                              <p className="text-muted-foreground/70 font-mono text-sm">
-                                Screenshot coming soon
-                              </p>
-                            </div>
-                          </div>
-                        )}
-                        
-                        {/* Image overlay on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                      </div>
-                      
-                      {/* Floating decorative elements */}
-                      <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-primary animate-pulse" />
-                      <div className="absolute -bottom-2 -left-2 w-3 h-3 rounded-full bg-accent animate-pulse" style={{ animationDelay: '0.5s' }} />
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="space-y-5">
-                      <div>
-                        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                          {project.title}
-                        </h3>
-                        <div className="w-12 h-0.5 bg-gradient-to-r from-primary to-transparent rounded-full" />
-                      </div>
-                      
-                      {/* Tech Stack */}
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((t) => (
-                          <span 
-                            key={t} 
-                            className="px-4 py-1.5 border border-border/50 text-foreground/80 text-sm rounded-full bg-secondary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 cursor-default"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      {/* Description */}
-                      <p className="text-muted-foreground text-base leading-relaxed">
-                        {project.description}
-                      </p>
-                      
-                      {/* Links */}
-                      <div className="flex gap-4 pt-2">
-                        {project.liveUrl && (
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group/btn inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-xl hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5"
-                          >
-                            <ExternalLink className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />
-                            Live Link
-                          </a>
-                        )}
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group/btn inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary font-medium rounded-xl hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5"
+        <div className="space-y-20">
+          {projects.map((project, index) => (
+            <article key={project.title} className="group">
+              <div className={`grid md:grid-cols-2 gap-8 items-start ${index % 2 === 1 ? 'md:direction-rtl' : ''}`}>
+                {/* Image */}
+                <div 
+                  className={`brutalist-border overflow-hidden cursor-pointer bg-card ${index % 2 === 1 ? 'md:order-2' : ''}`}
+                  onClick={() => project.image && setLightboxImage({ src: project.image, alt: project.title })}
+                >
+                  {project.images && project.images.length > 1 ? (
+                    <div className="flex">
+                      {project.images.map((img, imgIndex) => (
+                        <div 
+                          key={imgIndex}
+                          className="flex-1 cursor-pointer"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setLightboxImage({ src: img, alt: `${project.title} ${imgIndex + 1}` });
+                          }}
                         >
-                          <Github className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />
-                          Code Link
-                        </a>
-                      </div>
+                          <img 
+                            src={img} 
+                            alt={`${project.title} screenshot ${imgIndex + 1}`}
+                            className="w-full h-64 object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
+                          />
+                        </div>
+                      ))}
                     </div>
-                  </div>
+                  ) : project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-64 md:h-80 object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
+                    />
+                  ) : null}
                 </div>
                 
-                {/* Separator line between projects */}
-                {index < projects.length - 1 && (
-                  <div className="flex items-center justify-center mt-12">
-                    <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-                    <div className="w-2 h-2 rounded-full bg-primary/30 mx-4" />
-                    <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                {/* Content */}
+                <div className={`space-y-4 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
+                  <div className="flex items-baseline gap-4">
+                    <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">0{index + 1}</span>
+                    <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tight">
+                      {project.title}
+                    </h3>
                   </div>
-                )}
-              </article>
-            ))}
-          </div>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((t) => (
+                      <span key={t} className="px-3 py-1 text-xs font-mono uppercase tracking-wider brutalist-border">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex gap-3 pt-2">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-xs font-mono uppercase tracking-wider brutalist-border hover:bg-foreground hover:text-background transition-colors"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        Live Demo
+                      </a>
+                    )}
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-mono uppercase tracking-wider brutalist-border hover:bg-primary transition-colors"
+                    >
+                      <Github className="w-3.5 h-3.5" />
+                      Source
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

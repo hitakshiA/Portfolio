@@ -20,10 +20,10 @@ const Index = () => {
         <Achievements />
         <Contact />
       </main>
-      <footer className="py-8 text-center text-sm text-muted-foreground border-t border-border">
-        <div className="max-w-5xl mx-auto px-6">
-          <p className="font-mono">
-            Designed & Built by <span className="text-primary">Hitakshi Arora</span>
+      <footer className="py-6 text-center border-t-2 border-foreground">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            Designed & Built by <span className="highlight font-bold">Hitakshi Arora</span> — 2026
           </p>
         </div>
       </footer>
