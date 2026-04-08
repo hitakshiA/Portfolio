@@ -5,7 +5,7 @@ const Hero = () => {
     <section className="min-h-screen flex flex-col justify-center pt-16 relative">
       <div className="max-w-7xl mx-auto px-6 w-full">
         {/* Large name - single line */}
-        <h1 className="text-6xl md:text-[7rem] lg:text-[9rem] xl:text-[11rem] font-black uppercase tracking-tighter leading-[0.85] mb-8">
+        <h1 className="text-6xl md:text-[7rem] lg:text-[9rem] xl:text-[11rem] font-black uppercase tracking-tighter leading-[0.85] mb-4">
           <span className="highlight">HITAKSHI</span> ARORA
         </h1>
 
