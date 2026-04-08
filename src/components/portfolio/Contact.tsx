@@ -3,7 +3,7 @@ const Contact = () => {
     <section id="contact" className="py-16">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="section-heading mb-12">
-          CON<span className="highlight">TACT</span>
+          CONTACT<span className="highlight">.md</span>
         </h2>
         
         <div className="max-w-2xl">

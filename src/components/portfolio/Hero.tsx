@@ -5,11 +5,11 @@ const Hero = () => {
     <section className="min-h-screen flex flex-col justify-center pt-16 relative">
       <div className="max-w-7xl mx-auto px-6 w-full">
         {/* Large name - single line */}
-        <h1 className="text-6xl md:text-[7rem] lg:text-[9rem] xl:text-[11rem] font-black uppercase tracking-tighter leading-[0.85] mb-8">
+        <h1 className="text-6xl md:text-[7rem] lg:text-[9rem] xl:text-[11rem] font-black uppercase tracking-tighter leading-[0.85] mb-4">
           <span className="highlight">HITAKSHI</span> ARORA
         </h1>
 
-        <div className="flex flex-col md:flex-row items-start gap-10 mb-12">
+        <div className="flex flex-col md:flex-row items-start gap-10 mb-6">
           {/* Left: bio + links */}
           <div className="flex-1">
             <p className="text-sm md:text-base font-mono text-muted-foreground max-w-md leading-relaxed mb-6">
