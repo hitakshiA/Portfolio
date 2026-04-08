@@ -4,15 +4,14 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex flex-col justify-center pt-16 relative">
       <div className="max-w-7xl mx-auto px-6 w-full">
-        <div className="flex flex-col md:flex-row items-end justify-between gap-8 py-20">
-          {/* Large name */}
+        {/* Large name - single line */}
+        <h1 className="text-6xl md:text-[7rem] lg:text-[9rem] xl:text-[11rem] font-black uppercase tracking-tighter leading-[0.85] mb-8">
+          <span className="highlight">HITAKSHI</span> ARORA
+        </h1>
+
+        <div className="flex flex-col md:flex-row items-start gap-10 mb-12">
+          {/* Left: bio + links */}
           <div className="flex-1">
-            <h1 className="text-7xl md:text-[9rem] lg:text-[11rem] font-black uppercase tracking-tighter leading-[0.85] mb-8">
-              <span className="block">HITA</span>
-              <span className="block">
-                <span className="highlight">KSHI</span>
-              </span>
-            </h1>
             <p className="text-sm md:text-base font-mono text-muted-foreground max-w-md leading-relaxed mb-6">
               Full-Stack & Android Developer — Building scalable applications with clean, efficient code. 
               Passionate about solving complex problems and creating impactful products.
@@ -25,15 +24,14 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Photo */}
+          {/* Right: photo */}
           <div className="flex-shrink-0">
-            <div className="w-48 h-60 md:w-64 md:h-80 overflow-hidden brutalist-border">
+            <div className="w-64 h-80 md:w-80 md:h-[26rem] overflow-hidden brutalist-border">
               <img src={hitakshiPhoto} alt="Hitakshi Arora" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500" />
             </div>
           </div>
         </div>
 
-        {/* Horizontal rule */}
         <div className="border-t-2 border-foreground" />
       </div>
     </section>
