@@ -3,7 +3,7 @@ const About = () => {
     <section id="about" className="py-16 border-b-2 border-foreground">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="section-heading mb-12">
-          ABOUT<span className="highlight"> ME</span>
+          README<span className="highlight">.md</span>
         </h2>
         
         <div className="grid md:grid-cols-2 gap-12">

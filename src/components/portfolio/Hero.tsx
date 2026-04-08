@@ -9,7 +9,7 @@ const Hero = () => {
           <span className="highlight">HITAKSHI</span> ARORA
         </h1>
 
-        <div className="flex flex-col md:flex-row items-start gap-10 mb-12">
+        <div className="flex flex-col md:flex-row items-start gap-10 mb-6">
           {/* Left: bio + links */}
           <div className="flex-1">
             <p className="text-sm md:text-base font-mono text-muted-foreground max-w-md leading-relaxed mb-6">
