@@ -72,7 +72,7 @@
   }
 
   .section-heading {
-    @apply text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-none;
+    @apply text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-none;
     font-family: 'Inter', system-ui, sans-serif;
   }
 
