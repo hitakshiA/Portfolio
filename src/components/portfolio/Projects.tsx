@@ -5,6 +5,7 @@ import bigbuddyLogin from "@/assets/bigbuddy-login.png";
 import bigbuddySearch from "@/assets/bigbuddy-search.png";
 import bigbuddySchedule from "@/assets/bigbuddy-schedule.png";
 import bigbuddyReviews from "@/assets/bigbuddy-reviews.png";
+import manthanScreenshot from "@/assets/manthan-screenshot.png";
 import { ExternalLink, Github } from "lucide-react";
 import ImageLightbox from "./ImageLightbox";
 
@@ -13,12 +14,20 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "AASO",
-      tech: ["TypeScript", "VS Code API", "Node.js", "Snyk", "SonarQube"],
-      description: "AASO (Automated Application Security Optimizer) is a Visual Studio Code extension that helps developers identify and fix security vulnerabilities in their code using multiple scanning tools including Snyk, SonarQube, and AI-powered analysis with Gemini.",
-      github: "https://github.com/hitakshiA/AASO_Extension",
-      liveUrl: null,
-      image: aasoScreenshot,
+      title: "Manthan",
+      tech: ["TypeScript", "FastAPI", "AI Agent", "Data Analysis"],
+      description: "Business Intelligence-native agent with a governed semantic layer, validated SQL + Python, and an audit-first workspace.",
+      github: "https://github.com/hitakshiA/Manthan",
+      liveUrl: "https://manthan.quest",
+      image: manthanScreenshot,
+    },
+    {
+      title: "Project P.E.T.E.R.",
+      tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Prisma", "AI/ML"],
+      description: "An AI-powered domain intelligence platform built for the Doma Protocol ecosystem. Provides comprehensive analysis of digital assets by combining traditional Web2 metrics with unique on-chain data.",
+      github: "https://github.com/Project-Peter-Doma",
+      liveUrl: "https://www.projectpeter.xyz",
+      image: projectPeterImg,
     },
     {
       title: "BigBuddy",
@@ -30,12 +39,12 @@ const Projects = () => {
       images: [bigbuddyLogin, bigbuddySearch, bigbuddySchedule, bigbuddyReviews],
     },
     {
-      title: "Project P.E.T.E.R.",
-      tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Prisma", "AI/ML"],
-      description: "An AI-powered domain intelligence platform built for the Doma Protocol ecosystem. Provides comprehensive analysis of digital assets by combining traditional Web2 metrics with unique on-chain data.",
-      github: "https://github.com/Project-Peter-Doma",
-      liveUrl: "https://www.projectpeter.xyz",
-      image: projectPeterImg,
+      title: "AASO",
+      tech: ["TypeScript", "VS Code API", "Node.js", "Snyk", "SonarQube"],
+      description: "AASO (Automated Application Security Optimizer) is a Visual Studio Code extension that helps developers identify and fix security vulnerabilities in their code using multiple scanning tools including Snyk, SonarQube, and AI-powered analysis with Gemini.",
+      github: "https://github.com/hitakshiA/AASO_Extension",
+      liveUrl: null,
+      image: aasoScreenshot,
     },
   ];
 
