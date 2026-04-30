@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import hitakshiPhoto from "@/assets/hitakshi-photo.jpeg";
+import ChatModal from "./ChatModal";
 
 const FINAL_TEXT = "[ CHAT WITH ME >> ]";
 
 const Hero = () => {
   const [hovered, setHovered] = useState(false);
   const [displayed, setDisplayed] = useState("");
+  const [chatOpen, setChatOpen] = useState(false);
 
   useEffect(() => {
     if (!hovered) {
@@ -33,13 +35,14 @@ const Hero = () => {
               onMouseLeave={() => setHovered(false)}
             >
               <img src={hitakshiPhoto} alt="Hitakshi Arora" className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" />
-              <a
-                href="mailto:hitakshi220@gmail.com"
+              <button
+                type="button"
+                onClick={() => setChatOpen(true)}
                 aria-label="Chat with Hitakshi"
-                className="absolute bottom-3 right-3 px-3 py-2 bg-primary text-primary-foreground brutalist-border font-mono text-xs uppercase tracking-wider opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 whitespace-pre hover:bg-foreground hover:text-background"
+                className="absolute bottom-3 right-3 px-3 py-2 bg-primary text-primary-foreground brutalist-border font-mono text-xs uppercase tracking-wider opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 whitespace-pre hover:bg-foreground hover:text-background md:opacity-0 max-md:opacity-100 max-md:translate-y-0"
               >
-                {displayed}<span className="animate-pulse">_</span>
-              </a>
+                {displayed || FINAL_TEXT}<span className="animate-pulse">_</span>
+              </button>
             </div>
           </div>
 
