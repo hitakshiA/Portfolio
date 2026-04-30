@@ -1,14 +1,49 @@
+import { useEffect, useState } from "react";
 import hitakshiPhoto from "@/assets/hitakshi-photo.jpeg";
 
+const FRAMES = [
+  `> _`,
+  `> h_`,
+  `> hi_`,
+  `> hi!_`,
+  `> hi!`,
+  `[CHAT >>]`,
+];
+
 const Hero = () => {
+  const [hovered, setHovered] = useState(false);
+  const [frame, setFrame] = useState(0);
+
+  useEffect(() => {
+    if (!hovered) {
+      setFrame(0);
+      return;
+    }
+    const id = setInterval(() => {
+      setFrame((f) => (f + 1) % FRAMES.length);
+    }, 180);
+    return () => clearInterval(id);
+  }, [hovered]);
+
   return (
     <section className="min-h-screen flex flex-col justify-center pt-16 relative">
       <div className="max-w-7xl mx-auto px-6 w-full">
         <div className="flex flex-col md:flex-row items-center gap-10 mb-8">
           {/* Left: photo */}
           <div className="flex-shrink-0">
-            <div className="w-72 h-[22rem] md:w-96 md:h-[30rem] overflow-hidden brutalist-border">
-              <img src={hitakshiPhoto} alt="Hitakshi Arora" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500" />
+            <div
+              className="relative w-72 h-[22rem] md:w-96 md:h-[30rem] overflow-hidden brutalist-border group"
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+            >
+              <img src={hitakshiPhoto} alt="Hitakshi Arora" className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" />
+              <a
+                href="mailto:hitakshi220@gmail.com"
+                aria-label="Chat with Hitakshi"
+                className="absolute bottom-3 right-3 px-3 py-2 bg-primary text-primary-foreground brutalist-border font-mono text-xs uppercase tracking-wider opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 whitespace-pre min-w-[7.5rem] text-center hover:bg-foreground hover:text-background"
+              >
+                {FRAMES[frame]}
+              </a>
             </div>
           </div>
 
