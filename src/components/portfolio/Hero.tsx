@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useEffect, useState } from "react";
 import hitakshiPhoto from "@/assets/hitakshi-photo.jpeg";
 
 const FINAL_TEXT = "[ CHAT WITH ME >> ]";
