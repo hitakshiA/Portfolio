@@ -70,6 +70,7 @@ const Hero = () => {
 
         <div className="border-t-2 border-foreground" />
       </div>
+      <ChatModal open={chatOpen} onClose={() => setChatOpen(false)} />
     </section>
   );
 };
