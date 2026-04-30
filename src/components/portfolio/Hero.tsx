@@ -42,8 +42,6 @@ const Hero = () => {
               </a>
             </div>
           </div>
-            </div>
-          </div>
 
           {/* Right: name + bio + links */}
           <div className="flex-1">
