@@ -1,27 +1,24 @@
 import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import hitakshiPhoto from "@/assets/hitakshi-photo.jpeg";
 
-const FRAMES = [
-  `> _`,
-  `> h_`,
-  `> hi_`,
-  `> hi!_`,
-  `> hi!`,
-  `[CHAT >>]`,
-];
+const FINAL_TEXT = "[ CHAT WITH ME >> ]";
 
 const Hero = () => {
   const [hovered, setHovered] = useState(false);
-  const [frame, setFrame] = useState(0);
+  const [displayed, setDisplayed] = useState("");
 
   useEffect(() => {
     if (!hovered) {
-      setFrame(0);
+      setDisplayed("");
       return;
     }
+    let i = 0;
     const id = setInterval(() => {
-      setFrame((f) => (f + 1) % FRAMES.length);
-    }, 180);
+      i++;
+      setDisplayed(FINAL_TEXT.slice(0, i));
+      if (i >= FINAL_TEXT.length) clearInterval(id);
+    }, 45);
     return () => clearInterval(id);
   }, [hovered]);
 
@@ -40,10 +37,12 @@ const Hero = () => {
               <a
                 href="mailto:hitakshi220@gmail.com"
                 aria-label="Chat with Hitakshi"
-                className="absolute bottom-3 right-3 px-3 py-2 bg-primary text-primary-foreground brutalist-border font-mono text-xs uppercase tracking-wider opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 whitespace-pre min-w-[7.5rem] text-center hover:bg-foreground hover:text-background"
+                className="absolute bottom-3 right-3 px-3 py-2 bg-primary text-primary-foreground brutalist-border font-mono text-xs uppercase tracking-wider opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 whitespace-pre hover:bg-foreground hover:text-background"
               >
-                {FRAMES[frame]}
+                {displayed}<span className="animate-pulse">_</span>
               </a>
+            </div>
+          </div>
             </div>
           </div>
 
