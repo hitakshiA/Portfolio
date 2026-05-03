@@ -286,8 +286,7 @@ const ChatModal = ({ open, onClose }: Props) => {
         </div>
 
         {/* Footer */}
-        <div className="border-t-2 border-foreground px-4 py-2 font-mono text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider flex items-center justify-between">
-          <span>&gt; powered by tavus cvi</span>
+        <div className="border-t-2 border-foreground px-4 py-2 font-mono text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider flex items-center justify-end">
           <span className="hidden sm:inline">grant camera + mic to begin</span>
         </div>
       </div>
@@ -394,44 +393,15 @@ const HairCheckView = ({
         </div>
       </div>
 
-      {/* Right: status + join */}
-      <div className="lg:w-80 flex flex-col gap-4">
-        <div className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground">&gt; pre_flight.check</div>
-
-        <div className="brutalist-border p-4 flex flex-col gap-3">
-          <StatusRow label="Replica" ok={replicaJoined} pending={!replicaJoined} pendingText="JOINING…" okText="ONLINE ✓" />
-          <StatusRow
-            label="Network"
-            ok={netQuality === "good"}
-            pending={netQuality === "idle" || netQuality === "testing"}
-            pendingText="TESTING…"
-            okText="GOOD ✓"
-            warn={netQuality === "warning" || netQuality === "bad" || netQuality === "failed"}
-            warnText={
-              netQuality === "bad" ? "POOR ✕" : netQuality === "warning" ? "WARNING ⚠" : "TEST FAILED"
-            }
-          />
-          <div className="pt-1">
-            <NetBadge q={netQuality} />
-          </div>
-          {(netQuality === "bad" || netQuality === "warning") && (
-            <p className="font-mono text-[10px] sm:text-xs leading-relaxed text-muted-foreground border-t-2 border-foreground pt-3">
-              &gt; your connection looks weak. video/audio quality may degrade. consider switching networks.
-            </p>
-          )}
-        </div>
-
+      {/* Right: join */}
+      <div className="lg:w-80 flex flex-col gap-4 justify-end">
         <button
           onClick={onJoin}
           disabled={!replicaJoined}
           className="font-mono text-sm uppercase tracking-widest px-4 py-4 bg-primary text-primary-foreground brutalist-border hover:bg-foreground hover:text-background transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-primary disabled:hover:text-primary-foreground"
         >
-          {replicaJoined ? "[ JOIN CONVERSATION >> ]" : "[ WAITING FOR REPLICA… ]"}
+          {replicaJoined ? "[ JOIN CONVERSATION >> ]" : "[ CONNECTING… ]"}
         </button>
-
-        <p className="font-mono text-[10px] leading-relaxed text-muted-foreground">
-          &gt; tip: hair-check waits until hitakshi has joined the room — no awkward silence on entry.
-        </p>
       </div>
     </div>
   );
