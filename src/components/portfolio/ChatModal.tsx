@@ -357,9 +357,8 @@ const HairCheckView = ({
   onJoin: () => void;
 }) => {
   return (
-    <div className="absolute inset-0 flex flex-col lg:flex-row gap-4 p-4 sm:p-6 overflow-y-auto">
-      {/* Left: preview */}
-      <div className="flex-1 flex flex-col gap-3 min-h-[240px]">
+    <div className="absolute inset-0 flex flex-col gap-4 p-4 sm:p-6 overflow-y-auto">
+      <div className="flex flex-col gap-3 flex-1 min-h-[240px]">
         <div className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground">&gt; device_preview.cam</div>
         <div className="relative flex-1 brutalist-border bg-black overflow-hidden min-h-[220px]">
           {camOn ? (
@@ -393,16 +392,13 @@ const HairCheckView = ({
         </div>
       </div>
 
-      {/* Right: join */}
-      <div className="lg:w-80 flex flex-col gap-4 justify-end">
-        <button
-          onClick={onJoin}
-          disabled={!replicaJoined}
-          className="font-mono text-sm uppercase tracking-widest px-4 py-4 bg-primary text-primary-foreground brutalist-border hover:bg-foreground hover:text-background transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-primary disabled:hover:text-primary-foreground"
-        >
-          {replicaJoined ? "[ JOIN CONVERSATION >> ]" : "[ CONNECTING… ]"}
-        </button>
-      </div>
+      <button
+        onClick={onJoin}
+        disabled={!replicaJoined}
+        className="w-full font-mono text-sm uppercase tracking-widest px-4 py-4 bg-primary text-primary-foreground brutalist-border hover:bg-foreground hover:text-background transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-primary disabled:hover:text-primary-foreground"
+      >
+        {replicaJoined ? "[ JOIN CONVERSATION >> ]" : "[ CONNECTING… ]"}
+      </button>
     </div>
   );
 };
