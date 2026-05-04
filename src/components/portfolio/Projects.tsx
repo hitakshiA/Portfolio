@@ -6,6 +6,7 @@ import bigbuddySearch from "@/assets/bigbuddy-search.png";
 import bigbuddySchedule from "@/assets/bigbuddy-schedule.png";
 import bigbuddyReviews from "@/assets/bigbuddy-reviews.png";
 import manthanScreenshot from "@/assets/manthan-screenshot.png";
+import id3aScreenshot from "@/assets/id3a-screenshot.png";
 import { ExternalLink, Github } from "lucide-react";
 import ImageLightbox from "./ImageLightbox";
 
@@ -20,6 +21,14 @@ const Projects = () => {
       github: "https://github.com/hitakshiA/Manthan",
       liveUrl: "https://manthan.quest",
       image: manthanScreenshot,
+    },
+    {
+      title: "id3a",
+      tech: ["Next.js", "TypeScript", "AI/ML", "Video Generation"],
+      description: "Type one sentence. Get a 60-second narrated pitch video — slides, b-roll, voice, music. Wizard-driven editor with a locked styleSheet, async background renders, and the share link delivered by email.",
+      github: "https://github.com/hitakshiA/id3a",
+      liveUrl: "https://id3a.fun",
+      image: id3aScreenshot,
     },
     {
       title: "Project P.E.T.E.R.",
