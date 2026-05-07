@@ -1,32 +1,22 @@
 const Contact = () => {
   return (
-    <section id="contact" className="py-16">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="section-heading mb-12">
-          CONTACT<span className="highlight">.md</span>
+    <section id="contact" className="bg-background">
+      <div className="max-w-[1200px] mx-auto px-6 py-24 md:py-32 text-center">
+        <p className="text-eyebrow font-display text-foreground mb-4">Contact</p>
+        <h2 className="text-headline font-display text-foreground mb-6 max-w-3xl mx-auto">
+          Let's build something worth shipping.
         </h2>
-        
-        <div className="max-w-2xl">
-          <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-            I'm currently looking for <span className="font-semibold text-foreground">full-time opportunities</span> in 
-            software development. Whether you have a question or just want to say hi, 
-            I'll try my best to get back to you.
-          </p>
-          
-          <div className="flex flex-wrap gap-4 font-mono text-xs">
-            <a
-              href="mailto:hitakshi220@gmail.com"
-              className="px-6 py-3 bg-primary text-primary-foreground brutalist-border uppercase tracking-wider hover:bg-foreground hover:text-background transition-colors font-bold"
-            >
-              Say Hello →
-            </a>
-            <a
-              href="/resume"
-              className="px-6 py-3 brutalist-border uppercase tracking-wider hover:bg-primary transition-colors"
-            >
-              View Resume
-            </a>
-          </div>
+        <p className="text-sub text-muted-foreground max-w-xl mx-auto mb-10">
+          Currently looking for full-time opportunities in software development.
+          Drop a note — I'll get back quickly.
+        </p>
+        <div className="flex items-center justify-center gap-4">
+          <a href="mailto:hitakshi220@gmail.com" className="btn-azure">
+            Say hello
+          </a>
+          <a href="/resume" className="btn-ghost">
+            View resume &rsaquo;
+          </a>
         </div>
       </div>
     </section>

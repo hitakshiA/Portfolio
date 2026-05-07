@@ -7,7 +7,7 @@ import bigbuddySchedule from "@/assets/bigbuddy-schedule.png";
 import bigbuddyReviews from "@/assets/bigbuddy-reviews.png";
 import manthanScreenshot from "@/assets/manthan-screenshot.png";
 import id3aScreenshot from "@/assets/id3a-screenshot.png";
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import ImageLightbox from "./ImageLightbox";
 
 const Projects = () => {
@@ -33,7 +33,7 @@ const Projects = () => {
     {
       title: "Project P.E.T.E.R.",
       tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Prisma", "AI/ML"],
-      description: "An AI-powered domain intelligence platform built for the Doma Protocol ecosystem. Provides comprehensive analysis of digital assets by combining traditional Web2 metrics with unique on-chain data.",
+      description: "An AI-powered domain intelligence platform built for the Doma Protocol ecosystem. Combines traditional Web2 metrics with unique on-chain data.",
       github: "https://github.com/Project-Peter-Doma",
       liveUrl: "https://www.projectpeter.xyz",
       image: projectPeterImg,
@@ -41,7 +41,7 @@ const Projects = () => {
     {
       title: "BigBuddy",
       tech: ["Java", "Android SDK", "XML", "Android Studio"],
-      description: "A mentorship and guidance mobile application designed to bridge the gap between users and domain experts. Provides personalized support in mental health, career planning, and skill development.",
+      description: "A mentorship and guidance mobile application bridging users with domain experts in mental health, career planning, and skill development.",
       github: "https://github.com/hitakshiA/BIGBUDDY",
       liveUrl: null,
       image: bigbuddyLogin,
@@ -50,7 +50,7 @@ const Projects = () => {
     {
       title: "AASO",
       tech: ["TypeScript", "VS Code API", "Node.js", "Snyk", "SonarQube"],
-      description: "AASO (Automated Application Security Optimizer) is a Visual Studio Code extension that helps developers identify and fix security vulnerabilities in their code using multiple scanning tools including Snyk, SonarQube, and AI-powered analysis with Gemini.",
+      description: "Automated Application Security Optimizer — a VS Code extension that helps developers identify and fix vulnerabilities using Snyk, SonarQube, and AI-powered analysis with Gemini.",
       github: "https://github.com/hitakshiA/AASO_Extension",
       liveUrl: null,
       image: aasoScreenshot,
@@ -58,7 +58,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-16 border-b-2 border-foreground">
+    <section id="projects" className="bg-background">
       <ImageLightbox
         src={lightboxImage?.src || ""}
         alt={lightboxImage?.alt || ""}
@@ -66,89 +66,83 @@ const Projects = () => {
         onClose={() => setLightboxImage(null)}
       />
 
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="section-heading mb-16">
-          PROJECTS<span className="highlight">.md</span>
+      <div className="max-w-[1200px] mx-auto px-6 py-24 md:py-32">
+        <p className="text-eyebrow font-display text-foreground mb-4">Projects</p>
+        <h2 className="text-section font-display text-foreground mb-14 max-w-3xl">
+          Selected work.
         </h2>
-        
-        <div className="space-y-20">
+
+        <div className="space-y-8">
           {projects.map((project, index) => (
-            <article key={project.title} className="group">
-              <div className={`grid md:grid-cols-2 gap-8 items-start ${index % 2 === 1 ? 'md:direction-rtl' : ''}`}>
-                {/* Image */}
-                <div 
-                  className={`brutalist-border overflow-hidden cursor-pointer bg-card ${index % 2 === 1 ? 'md:order-2' : ''}`}
+            <article key={project.title} className="surface-card overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-0 items-stretch">
+                <div
+                  className={`bg-background cursor-pointer order-1 ${index % 2 === 1 ? 'md:order-2' : ''}`}
                   onClick={() => project.image && setLightboxImage({ src: project.image, alt: project.title })}
                 >
                   {project.images && project.images.length > 1 ? (
-                    <div className="flex">
+                    <div className="grid grid-cols-2 gap-0.5 bg-border h-full">
                       {project.images.map((img, imgIndex) => (
-                        <div 
+                        <div
                           key={imgIndex}
-                          className="flex-1 cursor-pointer"
+                          className="bg-background cursor-pointer overflow-hidden"
                           onClick={(e) => {
                             e.stopPropagation();
                             setLightboxImage({ src: img, alt: `${project.title} ${imgIndex + 1}` });
                           }}
                         >
-                          <img 
-                            src={img} 
+                          <img
+                            src={img}
                             alt={`${project.title} screenshot ${imgIndex + 1}`}
-                            className="w-full h-64 object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
+                            className="w-full h-48 md:h-64 object-cover object-top"
                           />
                         </div>
                       ))}
                     </div>
                   ) : project.image ? (
-                    <img 
-                      src={project.image} 
+                    <img
+                      src={project.image}
                       alt={project.title}
-                      className="w-full h-64 md:h-80 object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
+                      className="w-full h-72 md:h-full md:min-h-[420px] object-cover object-top"
                     />
                   ) : null}
                 </div>
-                
-                {/* Content */}
-                <div className={`space-y-4 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                  <div className="flex items-baseline gap-4">
-                    <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">0{index + 1}</span>
-                    <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tight">
-                      {project.title}
-                    </h3>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-2">
+
+                <div className={`p-8 md:p-12 flex flex-col justify-center order-2 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
+                  <p className="text-caption uppercase tracking-wider text-muted-foreground mb-3">
+                    0{index + 1} — {project.tech[0]}
+                  </p>
+                  <h3 className="font-display text-[32px] md:text-[40px] font-bold tracking-tight text-foreground mb-4 leading-tight">
+                    {project.title}
+                  </h3>
+                  <p className="text-[17px] text-muted-foreground leading-relaxed mb-6 max-w-md">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mb-7">
                     {project.tech.map((t) => (
-                      <span key={t} className="px-3 py-1 text-xs font-mono uppercase tracking-wider brutalist-border">
+                      <span key={t} className="px-2.5 py-1 text-[12px] text-muted-foreground bg-background rounded-full">
                         {t}
                       </span>
                     ))}
                   </div>
-                  
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex gap-3 pt-2">
+                  <div className="flex flex-wrap gap-3 items-center">
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-xs font-mono uppercase tracking-wider brutalist-border hover:bg-foreground hover:text-background transition-colors"
+                        className="btn-azure"
                       >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                        Live Demo
+                        Visit
                       </a>
                     )}
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-mono uppercase tracking-wider brutalist-border hover:bg-primary transition-colors"
+                      className="btn-ghost"
                     >
-                      <Github className="w-3.5 h-3.5" />
-                      Source
+                      Source <ArrowUpRight className="w-4 h-4 ml-0.5" />
                     </a>
                   </div>
                 </div>
