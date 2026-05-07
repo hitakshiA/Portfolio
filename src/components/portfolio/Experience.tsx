@@ -12,7 +12,7 @@ const Experience = () => {
       ],
     },
     {
-      year: "NOW",
+      year: "Now",
       org: "ISTE Delhi NCR Campus",
       role: "Technical Team Lead",
       period: "Present",
@@ -25,41 +25,33 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-16 border-b-2 border-foreground">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="section-heading mb-16">
-          EXPERIENCE<span className="highlight">.md</span>
+    <section id="experience" className="bg-card">
+      <div className="max-w-[1200px] mx-auto px-6 py-24 md:py-32">
+        <p className="text-eyebrow font-display text-foreground mb-4">Experience</p>
+        <h2 className="text-section font-display text-foreground mb-12 max-w-3xl">
+          Where I've been working.
         </h2>
-        
-        <div className="space-y-16">
+
+        <div className="space-y-6">
           {experiences.map((exp) => (
-            <div key={exp.org} className="grid md:grid-cols-[200px_1fr] gap-8">
-              {/* Large year */}
-              <div>
-                <span className="text-6xl md:text-8xl font-black tracking-tighter leading-none">
-                  {exp.year}
-                </span>
+            <div key={exp.org} className="surface-recessed p-8 md:p-10 grid md:grid-cols-[180px_1fr] gap-8 items-start">
+              <div className="font-display text-[40px] md:text-[56px] font-bold tracking-tight leading-none text-foreground">
+                {exp.year}
               </div>
-              
-              {/* Details */}
-              <div className="brutalist-border p-6">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+              <div>
+                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-4 gap-1">
                   <div>
-                    <h3 className="text-xl font-bold text-foreground">
+                    <h3 className="text-[24px] font-semibold font-display text-foreground tracking-tight">
                       {exp.org}
                     </h3>
-                    <p className="text-sm font-mono text-muted-foreground">{exp.role}</p>
+                    <p className="text-[17px] text-muted-foreground">{exp.role}</p>
                   </div>
-                  <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider mt-2 md:mt-0">
-                    {exp.period}
-                  </span>
+                  <span className="text-[14px] text-muted-foreground">{exp.period}</span>
                 </div>
-                
-                <ul className="space-y-2">
+                <ul className="space-y-2.5">
                   {exp.points.map((point, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <span className="text-foreground font-bold mt-0.5">→</span>
-                      <span>{point}</span>
+                    <li key={i} className="text-[17px] text-muted-foreground leading-snug">
+                      — {point}
                     </li>
                   ))}
                 </ul>

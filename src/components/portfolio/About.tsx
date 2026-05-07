@@ -1,43 +1,35 @@
 const About = () => {
   return (
-    <section id="about" className="py-16 border-b-2 border-foreground">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="section-heading mb-12">
-          README<span className="highlight">.md</span>
+    <section id="about" className="bg-card">
+      <div className="max-w-[1200px] mx-auto px-6 py-24 md:py-32">
+        <p className="text-eyebrow font-display text-foreground mb-4">About</p>
+        <h2 className="text-section font-display text-foreground mb-12 max-w-3xl">
+          A computer science undergraduate with a bias toward shipping.
         </h2>
-        
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-6 text-base leading-relaxed text-muted-foreground">
+
+        <div className="grid md:grid-cols-2 gap-10">
+          <div className="space-y-5 text-body-lg text-muted-foreground max-w-xl">
             <p>
-              I'm a Computer Science undergraduate specializing in <span className="font-semibold text-foreground">Data Science</span> at 
-              SRM Institute of Science and Technology.
+              I'm specializing in <span className="text-foreground">Data Science</span> at SRM
+              Institute of Science and Technology, with a focus on building products that solve
+              real problems — from mobile apps to developer tools.
             </p>
             <p>
-              I enjoy building products that solve real problems — from mobile applications 
-              to developer tools. I'm passionate about writing <span className="highlight font-semibold">clean, maintainable code</span>.
-            </p>
-            <p>
-              Currently seeking <span className="font-semibold text-foreground">full-time opportunities</span> where 
-              I can contribute to impactful projects.
+              I care about clean architecture, calm interfaces, and code you can read on a
+              Monday morning. Currently seeking full-time opportunities where I can contribute
+              to thoughtful, impactful work.
             </p>
           </div>
-          
-          <div className="space-y-6">
-            <div className="brutalist-border p-6">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-3">Currently Learning</h3>
-              <p className="text-foreground font-medium">
-                System Design, Advanced DSA, Cloud Architecture
-              </p>
+
+          <div className="grid gap-5">
+            <div className="surface-recessed p-7">
+              <p className="text-caption uppercase tracking-wider text-muted-foreground mb-2">Currently Learning</p>
+              <p className="text-[17px] text-foreground">System Design · Advanced DSA · Cloud Architecture</p>
             </div>
-            
-            <div className="brutalist-border p-6">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-3">Education</h3>
-              <p className="text-foreground font-medium">
-                B.Tech in Computer Science (Data Science)
-              </p>
-              <p className="text-sm text-muted-foreground mt-1">
-                SRM Institute of Science and Technology
-              </p>
+            <div className="surface-recessed p-7">
+              <p className="text-caption uppercase tracking-wider text-muted-foreground mb-2">Education</p>
+              <p className="text-[17px] text-foreground">B.Tech in Computer Science (Data Science)</p>
+              <p className="text-[14px] text-muted-foreground mt-1">SRM Institute of Science and Technology</p>
             </div>
           </div>
         </div>

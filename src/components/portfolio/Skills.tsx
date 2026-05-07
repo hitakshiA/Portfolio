@@ -1,42 +1,28 @@
 const Skills = () => {
   const skillCategories = [
-    {
-      title: "Languages",
-      skills: ["Java", "Kotlin", "Python", "JavaScript", "TypeScript", "C++"],
-    },
-    {
-      title: "Mobile",
-      skills: ["Android Development", "XML", "Jetpack Compose"],
-    },
-    {
-      title: "Backend",
-      skills: ["Node.js", "Express.js", "PostgreSQL", "REST APIs"],
-    },
-    {
-      title: "Tools & Core",
-      skills: ["Git", "GitHub", "Google Cloud", "DSA", "DBMS", "OOP"],
-    },
+    { title: "Languages", skills: ["Java", "Kotlin", "Python", "JavaScript", "TypeScript", "C++"] },
+    { title: "Mobile", skills: ["Android Development", "XML", "Jetpack Compose"] },
+    { title: "Backend", skills: ["Node.js", "Express.js", "PostgreSQL", "REST APIs"] },
+    { title: "Tools & Core", skills: ["Git", "GitHub", "Google Cloud", "DSA", "DBMS", "OOP"] },
   ];
 
   return (
-    <section id="skills" className="py-16 border-b-2 border-foreground">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="section-heading mb-12">
-          SKILLS<span className="highlight">.md</span>
+    <section id="skills" className="bg-background">
+      <div className="max-w-[1200px] mx-auto px-6 py-24 md:py-32">
+        <p className="text-eyebrow font-display text-foreground mb-4">Skills</p>
+        <h2 className="text-section font-display text-foreground mb-12 max-w-3xl">
+          The tools I reach for.
         </h2>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {skillCategories.map((category) => (
-            <div key={category.title}>
-              <h3 className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-4 pb-2 border-b-2 border-foreground">
+            <div key={category.title} className="surface-card p-7">
+              <p className="text-caption uppercase tracking-wider text-muted-foreground mb-5">
                 {category.title}
-              </h3>
+              </p>
               <div className="space-y-2">
                 {category.skills.map((skill) => (
-                  <div
-                    key={skill}
-                    className="font-mono text-sm text-foreground py-1 hover:bg-primary hover:pl-2 transition-all duration-200 cursor-default"
-                  >
+                  <div key={skill} className="text-[17px] text-foreground">
                     {skill}
                   </div>
                 ))}
