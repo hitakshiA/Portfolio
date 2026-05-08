@@ -61,7 +61,7 @@ const Hero = () => {
               playsInline
               preload="auto"
               onCanPlayThrough={() => setVideoReady(true)}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+              className={`absolute inset-0 w-full h-full object-cover scale-110 transition-opacity duration-500 ${
                 hovering && videoReady ? "opacity-100" : "opacity-0"
               }`}
             />
