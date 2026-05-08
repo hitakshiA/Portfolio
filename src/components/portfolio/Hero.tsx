@@ -45,7 +45,7 @@ const Hero = () => {
             <img
               src={widescreenImg}
               alt="Hitakshi Arora"
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+              className={`absolute inset-0 w-full h-full object-cover scale-105 transition-opacity duration-500 ${
                 hovering && videoReady ? "opacity-0" : "opacity-100"
               }`}
             />
