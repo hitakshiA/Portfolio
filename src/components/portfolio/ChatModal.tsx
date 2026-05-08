@@ -13,8 +13,8 @@ type NetQuality = "idle" | "testing" | "good" | "warning" | "bad" | "failed";
 const ChatModal = ({ open, onClose }: Props) => {
   const [stage, setStage] = useState<Stage>("creating");
   const [error, setError] = useState<string | null>(null);
-  const [conversationUrl, setConversationUrl] = useState<string | null>(null);
-  const [netQuality, setNetQuality] = useState<NetQuality>("idle");
+  const [, setConversationUrl] = useState<string | null>(null);
+  const [, setNetQuality] = useState<NetQuality>("idle");
   const [replicaJoined, setReplicaJoined] = useState(false);
   const [camOn, setCamOn] = useState(true);
   const [micOn, setMicOn] = useState(true);
@@ -24,7 +24,6 @@ const ChatModal = ({ open, onClose }: Props) => {
   const replicaVideoRef = useRef<HTMLVideoElement | null>(null);
   const replicaAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  // ---------- Lifecycle: create conversation + call object ----------
   useEffect(() => {
     if (!open) return;
     let cancelled = false;
@@ -44,26 +43,15 @@ const ChatModal = ({ open, onClose }: Props) => {
         const url: string = data.conversation_url;
         setConversationUrl(url);
 
-        // Build call object
-        const call = DailyIframe.createCallObject({
-          subscribeToTracksAutomatically: true,
-        });
+        const call = DailyIframe.createCallObject({ subscribeToTracksAutomatically: true });
         callRef.current = call;
-
         attachCallListeners(call);
 
-        // Pre-auth + start camera for hair check preview
         await call.startCamera();
-
-        // Pre-join the room in background so the replica can connect while user previews devices
-        call.join({ url }).catch((e) => {
-          console.warn("[ChatModal] background join failed:", e);
-        });
+        call.join({ url }).catch((e) => console.warn("[ChatModal] background join failed:", e));
 
         if (cancelled) return;
         setStage("haircheck");
-
-        // Run network quality test in parallel
         runNetworkTest(call);
       } catch (e: any) {
         if (cancelled) return;
@@ -79,7 +67,6 @@ const ChatModal = ({ open, onClose }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
-  // ---------- Escape + scroll lock ----------
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && handleClose();
@@ -92,32 +79,21 @@ const ChatModal = ({ open, onClose }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
-  // ---------- Helpers ----------
   const attachCallListeners = (call: DailyCall) => {
     call.on("participant-joined", (ev) => {
       const p = ev?.participant;
       if (!p) return;
-      // Any non-local participant in a 1:1 Tavus call is the replica
       if (!p.local) {
         setReplicaJoined(true);
         bindReplicaTracks(p);
       }
     });
-
     call.on("participant-updated", (ev) => {
       const p = ev?.participant;
       if (!p) return;
-      if (p.local) {
-        bindLocalVideo(p);
-      } else {
-        bindReplicaTracks(p);
-      }
+      if (p.local) bindLocalVideo(p);
+      else bindReplicaTracks(p);
     });
-
-    call.on("left-meeting", () => {
-      // user left or call ended
-    });
-
     call.on("error", (e: any) => {
       console.error("[Daily error]", e);
       setError(e?.errorMsg || "Video call error");
@@ -132,9 +108,7 @@ const ChatModal = ({ open, onClose }: Props) => {
     if (track) {
       const stream = new MediaStream([track]);
       if (el.srcObject !== stream) el.srcObject = stream;
-    } else {
-      el.srcObject = null;
-    }
+    } else el.srcObject = null;
   };
 
   const bindReplicaTracks = (p: DailyParticipant) => {
@@ -159,15 +133,13 @@ const ChatModal = ({ open, onClose }: Props) => {
   const runNetworkTest = async (call: DailyCall) => {
     try {
       setNetQuality("testing");
-      // testCallQuality runs up to ~30s; we don't await before showing UI
       const res: any = await (call as any).testCallQuality?.();
       const r = res?.result as string | undefined;
       if (r === "good") setNetQuality("good");
       else if (r === "warning") setNetQuality("warning");
       else if (r === "bad") setNetQuality("bad");
       else setNetQuality("failed");
-    } catch (e) {
-      console.warn("[ChatModal] network test failed", e);
+    } catch {
       setNetQuality("failed");
     }
   };
@@ -189,7 +161,6 @@ const ChatModal = ({ open, onClose }: Props) => {
   };
 
   const enterCall = () => {
-    // Re-bind replica tracks in the live view refs after stage change
     setStage("live");
     requestAnimationFrame(() => {
       const c = callRef.current;
@@ -206,12 +177,8 @@ const ChatModal = ({ open, onClose }: Props) => {
     const c = callRef.current;
     callRef.current = null;
     if (c) {
-      try {
-        c.leave();
-      } catch {}
-      try {
-        c.destroy();
-      } catch {}
+      try { c.leave(); } catch {}
+      try { c.destroy(); } catch {}
     }
     if (localVideoRef.current) localVideoRef.current.srcObject = null;
     if (replicaVideoRef.current) replicaVideoRef.current.srcObject = null;
@@ -225,39 +192,33 @@ const ChatModal = ({ open, onClose }: Props) => {
 
   if (!open) return null;
 
-  // ---------- UI ----------
   return (
     <div
-      className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6"
+      className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
       onClick={handleClose}
     >
       <div
-        className="relative w-full max-w-5xl h-[92vh] sm:h-[88vh] bg-background brutalist-border flex flex-col"
+        className="relative w-full max-w-4xl h-[90vh] sm:h-[86vh] bg-white rounded-[28px] overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b-2 border-foreground px-4 py-3">
-          <div className="font-mono text-xs sm:text-sm uppercase tracking-wider truncate">
-            <span className="text-muted-foreground">~/</span>
-            <span className="font-bold">chat-with-hitakshi.live</span>
-            <span className="text-muted-foreground"> — {stage}</span>
-            <span className="animate-pulse">_</span>
+        <div className="flex items-center justify-between px-6 py-4 border-b border-black/[0.06]">
+          <div className="text-[15px] font-semibold tracking-tight text-foreground">
+            Chat with Hitakshi
           </div>
           <button
             onClick={handleClose}
-            aria-label="Close chat"
-            className="font-mono text-xs uppercase px-3 py-1.5 brutalist-border hover:bg-primary hover:text-primary-foreground transition-colors shrink-0"
+            aria-label="Close"
+            className="w-8 h-8 rounded-full bg-black/[0.05] hover:bg-black/[0.1] flex items-center justify-center text-foreground/70 transition-colors"
           >
-            [ ESC ✕ ]
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
         </div>
 
         {/* Body */}
-        <div className="flex-1 relative bg-foreground/5 overflow-hidden">
+        <div className="flex-1 relative bg-[#f5f5f7] overflow-hidden">
           {stage === "creating" && <CreatingView />}
-
           {stage === "error" && <ErrorView error={error} onClose={handleClose} />}
-
           {stage === "haircheck" && (
             <HairCheckView
               localVideoRef={localVideoRef}
@@ -265,12 +226,10 @@ const ChatModal = ({ open, onClose }: Props) => {
               micOn={micOn}
               toggleCam={toggleCam}
               toggleMic={toggleMic}
-              netQuality={netQuality}
               replicaJoined={replicaJoined}
               onJoin={enterCall}
             />
           )}
-
           {stage === "live" && (
             <LiveView
               replicaVideoRef={replicaVideoRef}
@@ -284,11 +243,6 @@ const ChatModal = ({ open, onClose }: Props) => {
             />
           )}
         </div>
-
-        {/* Footer */}
-        <div className="border-t-2 border-foreground px-4 py-2 font-mono text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider flex items-center justify-end">
-          <span className="hidden sm:inline">grant camera + mic to begin</span>
-        </div>
       </div>
     </div>
   );
@@ -297,45 +251,66 @@ const ChatModal = ({ open, onClose }: Props) => {
 /* =================== Subviews =================== */
 
 const CreatingView = () => (
-  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 font-mono text-xs sm:text-sm">
-    <div className="uppercase tracking-widest text-muted-foreground">
-      &gt; spinning up replica<span className="animate-pulse">_</span>
-    </div>
-    <pre className="text-[10px] sm:text-xs leading-tight text-foreground/60 select-none">
-{`  ┌─────────────┐
-  │  ◉  ◉  ◉   │
-  │             │
-  │   ▰▰▰▰▰▰   │
-  └─────────────┘`}
-    </pre>
+  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+    <div className="w-10 h-10 rounded-full border-[3px] border-black/10 border-t-[hsl(211,100%,45%)] animate-spin" />
+    <div className="text-[14px] text-muted-foreground">Preparing your conversation…</div>
   </div>
 );
 
 const ErrorView = ({ error, onClose }: { error: string | null; onClose: () => void }) => (
-  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 font-mono text-xs sm:text-sm text-center">
-    <div className="uppercase tracking-widest font-bold">[ ERROR ]</div>
-    <div className="text-muted-foreground max-w-md break-words">{error}</div>
+  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
+    <div className="text-[20px] font-semibold tracking-tight">Something went wrong</div>
+    <div className="text-[14px] text-muted-foreground max-w-md">{error}</div>
     <button
       onClick={onClose}
-      className="mt-2 px-4 py-2 brutalist-border hover:bg-primary hover:text-primary-foreground transition-colors uppercase"
+      className="mt-2 px-5 h-10 rounded-full bg-[hsl(211,100%,45%)] text-white text-[14px] font-medium hover:bg-[hsl(211,100%,40%)] transition-colors"
     >
       Close
     </button>
   </div>
 );
 
-const NetBadge = ({ q }: { q: NetQuality }) => {
-  const map: Record<NetQuality, { label: string; cls: string }> = {
-    idle: { label: "NET: —", cls: "text-muted-foreground" },
-    testing: { label: "NET: TESTING…", cls: "text-muted-foreground" },
-    good: { label: "NET: GOOD ✓", cls: "bg-primary text-primary-foreground px-2" },
-    warning: { label: "NET: WARNING ⚠", cls: "bg-yellow-300 text-black px-2" },
-    bad: { label: "NET: POOR ✕", cls: "bg-red-500 text-white px-2" },
-    failed: { label: "NET: TEST FAILED", cls: "text-muted-foreground" },
-  };
-  const v = map[q];
-  return <span className={`font-mono text-[10px] sm:text-xs uppercase tracking-wider brutalist-border py-1 ${v.cls}`}>{v.label}</span>;
-};
+const IconBtn = ({
+  on,
+  onClick,
+  children,
+  label,
+}: {
+  on: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+  label: string;
+}) => (
+  <button
+    onClick={onClick}
+    aria-label={label}
+    className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${
+      on
+        ? "bg-white text-foreground hover:bg-white/90 border border-black/10"
+        : "bg-[#ff453a] text-white hover:bg-[#e03e35]"
+    }`}
+  >
+    {children}
+  </button>
+);
+
+const MicIcon = ({ on }: { on: boolean }) => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+    <line x1="12" y1="19" x2="12" y2="23"/>
+    <line x1="8" y1="23" x2="16" y2="23"/>
+    {!on && <line x1="3" y1="3" x2="21" y2="21"/>}
+  </svg>
+);
+
+const CamIcon = ({ on }: { on: boolean }) => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="23 7 16 12 23 17 23 7"/>
+    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+    {!on && <line x1="3" y1="3" x2="21" y2="21"/>}
+  </svg>
+);
 
 const HairCheckView = ({
   localVideoRef,
@@ -343,7 +318,6 @@ const HairCheckView = ({
   micOn,
   toggleCam,
   toggleMic,
-  netQuality,
   replicaJoined,
   onJoin,
 }: {
@@ -352,87 +326,33 @@ const HairCheckView = ({
   micOn: boolean;
   toggleCam: () => void;
   toggleMic: () => void;
-  netQuality: NetQuality;
   replicaJoined: boolean;
   onJoin: () => void;
-}) => {
-  return (
-    <div className="absolute inset-0 flex flex-col gap-4 p-4 sm:p-6 overflow-y-auto">
-      <div className="flex flex-col gap-3 flex-1 min-h-[240px]">
-        <div className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground">&gt; device_preview.cam</div>
-        <div className="relative flex-1 brutalist-border bg-black overflow-hidden min-h-[220px]">
-          {camOn ? (
-            <video ref={localVideoRef} autoPlay playsInline muted className="w-full h-full object-cover [transform:scaleX(-1)]" />
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center font-mono text-xs uppercase text-white/60">
-              [ CAMERA OFF ]
-            </div>
-          )}
-          <div className="absolute top-2 left-2 font-mono text-[10px] uppercase tracking-wider bg-black/70 text-white px-2 py-1">
-            ● YOU
-          </div>
-        </div>
-        <div className="flex gap-2">
-          <button
-            onClick={toggleCam}
-            className={`flex-1 font-mono text-xs uppercase tracking-wider px-3 py-2 brutalist-border transition-colors ${
-              camOn ? "hover:bg-primary hover:text-primary-foreground" : "bg-foreground text-background"
-            }`}
-          >
-            {camOn ? "CAM ON" : "CAM OFF"}
-          </button>
-          <button
-            onClick={toggleMic}
-            className={`flex-1 font-mono text-xs uppercase tracking-wider px-3 py-2 brutalist-border transition-colors ${
-              micOn ? "hover:bg-primary hover:text-primary-foreground" : "bg-foreground text-background"
-            }`}
-          >
-            {micOn ? "MIC ON" : "MIC OFF"}
-          </button>
-        </div>
-      </div>
-
-      <button
-        onClick={onJoin}
-        disabled={!replicaJoined}
-        className="w-full font-mono text-sm uppercase tracking-widest px-4 py-4 bg-primary text-primary-foreground brutalist-border hover:bg-foreground hover:text-background transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-primary disabled:hover:text-primary-foreground"
-      >
-        {replicaJoined ? "[ JOIN CONVERSATION >> ]" : "[ CONNECTING… ]"}
-      </button>
-    </div>
-  );
-};
-
-const StatusRow = ({
-  label,
-  ok,
-  pending,
-  warn,
-  pendingText,
-  okText,
-  warnText,
-}: {
-  label: string;
-  ok: boolean;
-  pending: boolean;
-  warn?: boolean;
-  pendingText: string;
-  okText: string;
-  warnText?: string;
 }) => (
-  <div className="flex items-center justify-between font-mono text-xs uppercase tracking-wider">
-    <span>{label}</span>
-    <span
-      className={
-        ok
-          ? "text-foreground font-bold"
-          : warn
-          ? "text-foreground font-bold"
-          : "text-muted-foreground animate-pulse"
-      }
+  <div className="absolute inset-0 flex flex-col gap-5 p-6 sm:p-8 overflow-y-auto">
+    <div className="flex flex-col gap-4 flex-1 min-h-[240px]">
+      <div className="relative flex-1 rounded-[20px] bg-black overflow-hidden min-h-[260px]">
+        {camOn ? (
+          <video ref={localVideoRef} autoPlay playsInline muted className="w-full h-full object-cover [transform:scaleX(-1)]" />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-white/60 text-[14px]">
+            Camera off
+          </div>
+        )}
+      </div>
+      <div className="flex justify-center gap-3">
+        <IconBtn on={micOn} onClick={toggleMic} label="Toggle microphone"><MicIcon on={micOn} /></IconBtn>
+        <IconBtn on={camOn} onClick={toggleCam} label="Toggle camera"><CamIcon on={camOn} /></IconBtn>
+      </div>
+    </div>
+
+    <button
+      onClick={onJoin}
+      disabled={!replicaJoined}
+      className="w-full h-12 rounded-full bg-[hsl(211,100%,45%)] text-white text-[15px] font-medium hover:bg-[hsl(211,100%,40%)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
     >
-      {ok ? okText : warn ? warnText : pendingText}
-    </span>
+      {replicaJoined ? "Join conversation" : "Connecting…"}
+    </button>
   </div>
 );
 
@@ -460,37 +380,24 @@ const LiveView = ({
     <audio ref={replicaAudioRef} autoPlay />
 
     {/* Local PiP */}
-    <div className="absolute top-3 right-3 w-28 h-40 sm:w-40 sm:h-56 brutalist-border bg-black overflow-hidden">
+    <div className="absolute top-4 right-4 w-28 h-40 sm:w-36 sm:h-52 rounded-2xl bg-black overflow-hidden ring-1 ring-white/15">
       {camOn ? (
         <video ref={localVideoRef} autoPlay playsInline muted className="w-full h-full object-cover [transform:scaleX(-1)]" />
       ) : (
-        <div className="w-full h-full flex items-center justify-center font-mono text-[10px] uppercase text-white/60">CAM OFF</div>
+        <div className="w-full h-full flex items-center justify-center text-[11px] text-white/60">Camera off</div>
       )}
     </div>
 
     {/* Controls */}
-    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-      <button
-        onClick={toggleMic}
-        className={`font-mono text-xs uppercase tracking-wider px-4 py-3 brutalist-border ${
-          micOn ? "bg-background text-foreground hover:bg-primary hover:text-primary-foreground" : "bg-foreground text-background"
-        } transition-colors`}
-      >
-        {micOn ? "MIC ON" : "MIC OFF"}
-      </button>
-      <button
-        onClick={toggleCam}
-        className={`font-mono text-xs uppercase tracking-wider px-4 py-3 brutalist-border ${
-          camOn ? "bg-background text-foreground hover:bg-primary hover:text-primary-foreground" : "bg-foreground text-background"
-        } transition-colors`}
-      >
-        {camOn ? "CAM ON" : "CAM OFF"}
-      </button>
+    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 px-4 py-3 rounded-full bg-black/55 backdrop-blur-md">
+      <IconBtn on={micOn} onClick={toggleMic} label="Toggle microphone"><MicIcon on={micOn} /></IconBtn>
+      <IconBtn on={camOn} onClick={toggleCam} label="Toggle camera"><CamIcon on={camOn} /></IconBtn>
       <button
         onClick={onLeave}
-        className="font-mono text-xs uppercase tracking-wider px-4 py-3 brutalist-border bg-red-500 text-white hover:bg-red-600 transition-colors"
+        aria-label="Leave"
+        className="w-12 h-12 rounded-full bg-[#ff453a] text-white hover:bg-[#e03e35] flex items-center justify-center transition-colors"
       >
-        [ LEAVE ✕ ]
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91" transform="rotate(135 12 12)"/></svg>
       </button>
     </div>
   </div>
