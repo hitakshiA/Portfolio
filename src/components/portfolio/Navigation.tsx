@@ -10,10 +10,7 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 frosted border-b border-border">
-      <div className="max-w-[1200px] mx-auto px-6 h-11 flex items-center justify-between">
-        <a href="#" className="text-[14px] font-semibold tracking-tight text-foreground">
-          Hitakshi Arora
-        </a>
+      <div className="max-w-[1200px] mx-auto px-6 h-11 flex items-center justify-center">
         <div className="hidden md:flex items-center gap-7">
           {navItems.map((item) => (
             <a
@@ -25,12 +22,6 @@ const Navigation = () => {
             </a>
           ))}
         </div>
-        <a
-          href="mailto:hitakshi220@gmail.com"
-          className="bg-primary text-primary-foreground rounded-full px-3.5 py-1 text-[12px] font-normal hover:opacity-90 transition-opacity"
-        >
-          Hire
-        </a>
       </div>
     </nav>
   );
