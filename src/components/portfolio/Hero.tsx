@@ -92,15 +92,6 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-3 text-[14px]">
-          <a href="https://linkedin.com/in/hitakshiaroraa" target="_blank" rel="noopener noreferrer" className="text-[hsl(211,100%,40%)] hover:underline">LinkedIn</a>
-          <span className="text-muted-foreground">·</span>
-          <a href="https://github.com/hitakshiA" target="_blank" rel="noopener noreferrer" className="text-[hsl(211,100%,40%)] hover:underline">GitHub</a>
-          <span className="text-muted-foreground">·</span>
-          <a href="mailto:hitakshi220@gmail.com" className="text-[hsl(211,100%,40%)] hover:underline">Email</a>
-          <span className="text-muted-foreground">·</span>
-          <a href="/resume" className="text-[hsl(211,100%,40%)] hover:underline">Resume</a>
-        </div>
       </div>
       <ChatModal open={chatOpen} onClose={() => setChatOpen(false)} />
     </section>
