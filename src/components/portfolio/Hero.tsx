@@ -32,15 +32,11 @@ const Hero = () => {
           <span className="text-muted-foreground">·</span>
           <a href="/resume" className="text-[hsl(211,100%,40%)] hover:underline">Resume</a>
         </div>
-        <h1 className="text-display font-display text-foreground mb-5">
+        <h1 className="text-display font-display text-foreground mb-8">
           Hitakshi Arora
         </h1>
-        <p className="text-sub text-muted-foreground max-w-2xl mx-auto mb-10">
-          Full-Stack & Android developer building scalable, considered products.
-          Currently open to full-time opportunities.
-        </p>
 
-        <div className="mx-auto w-full max-w-[900px]">
+        <div className="mx-auto w-full max-w-[1100px]">
           <div
             className="surface-card overflow-hidden aspect-[16/9] relative group cursor-pointer"
             onMouseEnter={() => setHovering(true)}
