@@ -5,7 +5,8 @@ import bigbuddyLogin from "@/assets/bigbuddy-login.png";
 import bigbuddySearch from "@/assets/bigbuddy-search.png";
 import bigbuddySchedule from "@/assets/bigbuddy-schedule.png";
 import bigbuddyReviews from "@/assets/bigbuddy-reviews.png";
-import manthanScreenshot from "@/assets/manthan-screenshot.png";
+import manthanScreenshotAsset from "@/assets/manthan-screenshot-v2.png.asset.json";
+const manthanScreenshot = manthanScreenshotAsset.url;
 import id3aScreenshot from "@/assets/id3a-screenshot.png";
 import { ArrowUpRight } from "lucide-react";
 import ImageLightbox from "./ImageLightbox";
@@ -17,7 +18,7 @@ const Projects = () => {
     {
       title: "Manthan",
       tech: ["TypeScript", "FastAPI", "AI Agent", "Data Analysis"],
-      description: "Business Intelligence-native agent with a governed semantic layer, validated SQL + Python, and an audit-first workspace.",
+      description: "Billing Ops Agent for Enterprises. Connects to your Stripe, CRM, and Customer Support to automate billing disputes.",
       github: "https://github.com/hitakshiA/Manthan",
       liveUrl: "https://manthan.quest",
       image: manthanScreenshot,
