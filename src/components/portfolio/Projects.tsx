@@ -18,7 +18,7 @@ const Projects = () => {
     {
       title: "Manthan",
       tech: ["TypeScript", "FastAPI", "AI Agent", "Data Analysis"],
-      description: "Business Intelligence-native agent with a governed semantic layer, validated SQL + Python, and an audit-first workspace.",
+      description: "Billing Ops Agent for Enterprises. Connects to your Stripe, CRM, and Customer Support to automate billing disputes.",
       github: "https://github.com/hitakshiA/Manthan",
       liveUrl: "https://manthan.quest",
       image: manthanScreenshot,
