@@ -28,7 +28,7 @@ const Projects = () => {
       tech: ["Next.js", "TypeScript", "AI/ML", "Video Generation"],
       description: "Type one sentence. Get a 60-second narrated pitch video — slides, b-roll, voice, music. Wizard-driven editor with a locked styleSheet, async background renders, and the share link delivered by email.",
       github: "https://github.com/hitakshiA/id3a",
-      liveUrl: "https://id3a.fun",
+      liveUrl: null,
       image: id3aScreenshot,
     },
     {
