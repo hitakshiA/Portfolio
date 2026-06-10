@@ -46,6 +46,7 @@ const Projects = () => {
     },
     {
       title: "Project P.E.T.E.R.",
+      category: "Next.js",
       tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Prisma", "AI/ML"],
       description: "An AI-powered domain intelligence platform built for the Doma Protocol ecosystem. Combines traditional Web2 metrics with unique on-chain data.",
       github: "https://github.com/Project-Peter-Doma",
@@ -54,6 +55,7 @@ const Projects = () => {
     },
     {
       title: "BigBuddy",
+      category: "Java",
       tech: ["Java", "Android SDK", "XML", "Android Studio"],
       description: "A mentorship and guidance mobile application bridging users with domain experts in mental health, career planning, and skill development.",
       github: "https://github.com/hitakshiA/BIGBUDDY",
@@ -63,6 +65,7 @@ const Projects = () => {
     },
     {
       title: "AASO",
+      category: "TypeScript",
       tech: ["TypeScript", "VS Code API", "Node.js", "Snyk", "SonarQube"],
       description: "Automated Application Security Optimizer — a VS Code extension that helps developers identify and fix vulnerabilities using Snyk, SonarQube, and AI-powered analysis with Gemini.",
       github: "https://github.com/hitakshiA/AASO_Extension",
@@ -124,7 +127,7 @@ const Projects = () => {
 
                 <div className={`p-8 md:p-12 flex flex-col justify-center order-2 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
                   <p className="text-caption uppercase tracking-wider text-muted-foreground mb-3">
-                    0{index + 1} — {project.tech[0]}
+                    0{index + 1} — {project.category}
                   </p>
                   <h3 className="font-display text-[32px] md:text-[40px] font-bold tracking-tight text-foreground mb-4 leading-tight">
                     {project.title}
