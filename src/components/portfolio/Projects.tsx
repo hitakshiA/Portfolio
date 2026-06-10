@@ -7,6 +7,8 @@ import bigbuddySchedule from "@/assets/bigbuddy-schedule.png";
 import bigbuddyReviews from "@/assets/bigbuddy-reviews.png";
 import manthanScreenshotAsset from "@/assets/manthan-screenshot-v2.png.asset.json";
 const manthanScreenshot = manthanScreenshotAsset.url;
+import loanDemoScreenshotAsset from "@/assets/loan-demo-screenshot.png.asset.json";
+const loanDemoScreenshot = loanDemoScreenshotAsset.url;
 import id3aScreenshot from "@/assets/id3a-screenshot.png";
 import { ArrowUpRight } from "lucide-react";
 import ImageLightbox from "./ImageLightbox";
@@ -17,6 +19,7 @@ const Projects = () => {
   const projects = [
     {
       title: "Manthan",
+      category: "AI Agent",
       tech: ["TypeScript", "FastAPI", "AI Agent", "Data Analysis"],
       description: "Billing Ops Agent for Enterprises. Connects to your Stripe, CRM, and Customer Support to automate billing disputes.",
       github: "https://github.com/hitakshiA/Manthan",
@@ -24,7 +27,17 @@ const Projects = () => {
       image: manthanScreenshot,
     },
     {
+      title: "Loan Demo",
+      category: "Voice AI",
+      tech: ["TypeScript", "Voice AI", "Video Avatar", "Computer Vision"],
+      description: "Conversational, video-based loan application demo. Customers join a video call with an AI agent named Priya, speak naturally in Hindi, show their PAN card to camera for verification, and receive a personalized loan offer — all in under 7 minutes. No forms, no document uploads, no branch visits.",
+      github: "https://github.com/hitakshiA/ai-video-loan-onboarding",
+      liveUrl: "https://loandemo.vercel.app",
+      image: loanDemoScreenshot,
+    },
+    {
       title: "id3a",
+      category: "Multi Modal AI",
       tech: ["Next.js", "TypeScript", "AI/ML", "Video Generation"],
       description: "Type one sentence. Get a 60-second narrated pitch video — slides, b-roll, voice, music. Wizard-driven editor with a locked styleSheet, async background renders, and the share link delivered by email.",
       github: "https://github.com/hitakshiA/id3a",
