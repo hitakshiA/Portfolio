@@ -7,6 +7,8 @@ import bigbuddySchedule from "@/assets/bigbuddy-schedule.png";
 import bigbuddyReviews from "@/assets/bigbuddy-reviews.png";
 import manthanScreenshotAsset from "@/assets/manthan-screenshot-v2.png.asset.json";
 const manthanScreenshot = manthanScreenshotAsset.url;
+import loanDemoScreenshotAsset from "@/assets/loan-demo-screenshot.png.asset.json";
+const loanDemoScreenshot = loanDemoScreenshotAsset.url;
 import id3aScreenshot from "@/assets/id3a-screenshot.png";
 import { ArrowUpRight } from "lucide-react";
 import ImageLightbox from "./ImageLightbox";
@@ -17,6 +19,7 @@ const Projects = () => {
   const projects = [
     {
       title: "Manthan",
+      category: "AI Agent",
       tech: ["TypeScript", "FastAPI", "AI Agent", "Data Analysis"],
       description: "Billing Ops Agent for Enterprises. Connects to your Stripe, CRM, and Customer Support to automate billing disputes.",
       github: "https://github.com/hitakshiA/Manthan",
@@ -24,7 +27,17 @@ const Projects = () => {
       image: manthanScreenshot,
     },
     {
+      title: "Loan Demo",
+      category: "Voice AI",
+      tech: ["TypeScript", "Voice AI", "Video Avatar", "Computer Vision"],
+      description: "Conversational, video-based loan application demo. Customers join a video call with an AI agent named Priya, speak naturally in Hindi, show their PAN card to camera for verification, and receive a personalized loan offer — all in under 7 minutes. No forms, no document uploads, no branch visits.",
+      github: "https://github.com/hitakshiA/ai-video-loan-onboarding",
+      liveUrl: "https://loandemo.vercel.app",
+      image: loanDemoScreenshot,
+    },
+    {
       title: "id3a",
+      category: "Multi Modal AI",
       tech: ["Next.js", "TypeScript", "AI/ML", "Video Generation"],
       description: "Type one sentence. Get a 60-second narrated pitch video — slides, b-roll, voice, music. Wizard-driven editor with a locked styleSheet, async background renders, and the share link delivered by email.",
       github: "https://github.com/hitakshiA/id3a",
@@ -33,6 +46,7 @@ const Projects = () => {
     },
     {
       title: "Project P.E.T.E.R.",
+      category: "Next.js",
       tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Prisma", "AI/ML"],
       description: "An AI-powered domain intelligence platform built for the Doma Protocol ecosystem. Combines traditional Web2 metrics with unique on-chain data.",
       github: "https://github.com/Project-Peter-Doma",
@@ -41,6 +55,7 @@ const Projects = () => {
     },
     {
       title: "BigBuddy",
+      category: "Java",
       tech: ["Java", "Android SDK", "XML", "Android Studio"],
       description: "A mentorship and guidance mobile application bridging users with domain experts in mental health, career planning, and skill development.",
       github: "https://github.com/hitakshiA/BIGBUDDY",
@@ -50,6 +65,7 @@ const Projects = () => {
     },
     {
       title: "AASO",
+      category: "TypeScript",
       tech: ["TypeScript", "VS Code API", "Node.js", "Snyk", "SonarQube"],
       description: "Automated Application Security Optimizer — a VS Code extension that helps developers identify and fix vulnerabilities using Snyk, SonarQube, and AI-powered analysis with Gemini.",
       github: "https://github.com/hitakshiA/AASO_Extension",
@@ -111,7 +127,7 @@ const Projects = () => {
 
                 <div className={`p-8 md:p-12 flex flex-col justify-center order-2 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
                   <p className="text-caption uppercase tracking-wider text-muted-foreground mb-3">
-                    0{index + 1} — {project.tech[0]}
+                    0{index + 1} — {project.category}
                   </p>
                   <h3 className="font-display text-[32px] md:text-[40px] font-bold tracking-tight text-foreground mb-4 leading-tight">
                     {project.title}
