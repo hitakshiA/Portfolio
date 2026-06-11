@@ -57,14 +57,29 @@ const Experience = () => {
                 {exp.year}
               </div>
               <div>
-                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-4 gap-1">
-                  <div>
-                    <h3 className="text-[24px] font-semibold font-display text-foreground tracking-tight">
-                      {exp.org}
-                    </h3>
-                    <p className="text-[17px] text-muted-foreground">{exp.role}</p>
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-1">
+                  <div className="flex items-start gap-4">
+                    {exp.logo && (
+                      <img
+                        src={exp.logo}
+                        alt={`${exp.org} logo`}
+                        className="w-12 h-12 rounded-xl object-cover shrink-0"
+                      />
+                    )}
+                    <div>
+                      <h3 className="text-[24px] font-semibold font-display text-foreground tracking-tight">
+                        {exp.org}
+                      </h3>
+                      <p className="text-[17px] text-muted-foreground">{exp.role}</p>
+                    </div>
                   </div>
-                  <span className="text-[14px] text-muted-foreground">{exp.period}</span>
+                  {exp.isPresent ? (
+                    <span className="self-start px-3 py-1 rounded-full bg-background text-[13px] font-medium text-[hsl(211,100%,40%)]">
+                      Present
+                    </span>
+                  ) : (
+                    <span className="text-[14px] text-muted-foreground">{exp.period}</span>
+                  )}
                 </div>
                 <ul className="space-y-2.5">
                   {exp.points.map((point, i) => (
