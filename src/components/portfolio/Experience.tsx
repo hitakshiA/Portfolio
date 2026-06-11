@@ -1,10 +1,26 @@
+import prodigalLogoAsset from "@/assets/prodigal-logo.jpg.asset.json";
+const prodigalLogo = prodigalLogoAsset.url;
+
 const Experience = () => {
   const experiences = [
+    {
+      year: "Now",
+      org: "Prodigal Tech",
+      role: "Agent Engineer Intern",
+      period: "Present",
+      isPresent: true,
+      logo: prodigalLogo,
+      points: [
+        "Building production AI agents at Prodigal (YC S18), an AI platform for consumer finance",
+      ],
+    },
     {
       year: "2025",
       org: "National Informatics Centre (NIC)",
       role: "Data Engineering Intern",
       period: "June 2025 – August 2025",
+      isPresent: false,
+      logo: null,
       points: [
         "Engineered data pipelines handling 4 TB/day, ensuring reliable data flow across systems",
         "Reduced system downtime by 35% through proactive monitoring and optimization",
@@ -12,10 +28,12 @@ const Experience = () => {
       ],
     },
     {
-      year: "Now",
+      year: "2025",
       org: "ISTE Delhi NCR Campus",
       role: "Technical Team Lead",
       period: "Present",
+      isPresent: false,
+      logo: null,
       points: [
         "Leading a team of developers to build technical solutions and organize events",
         "Mentoring junior members on best practices in software development",
