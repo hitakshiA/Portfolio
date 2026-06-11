@@ -35,13 +35,13 @@ const Achievements = () => {
       highlight: "Cloud Computing",
       description:
         "Co-authored a research paper on privacy preservation techniques in cloud computing.",
-      link: null,
+      link: "https://www.researchgate.net/publication/400601859_A_Memetic-Enhanced_Glowworm_Swarm_Optimization_Algorithm_with_Adaptive_Particle_Refinement_for_Secure_and_Privacy-Aware_Medical_Cloud_Computing",
     },
     {
       title: "SBI Life Hack-AI-Thon",
       highlight: "Top 16 of 7,500+",
       description: "Reached the finals of the national AI hackathon competition.",
-      link: null,
+      link: "https://www.linkedin.com/posts/hitakshiaroraa_hacksmiths-cybersecurity-hackathonjourney-activity-7346578675435261953-cCwT",
     },
   ];
 
@@ -56,19 +56,19 @@ const Achievements = () => {
         <div className="grid md:grid-cols-3 gap-5">
           {achievements.map((a) => (
             <div key={a.title} className="surface-recessed p-8 flex flex-col">
-              <p className="text-caption uppercase tracking-wider text-[hsl(211,100%,40%)] mb-3">{a.highlight}</p>
-              <h3 className="font-display text-[24px] font-semibold tracking-tight text-foreground mb-3">
+              <p className="text-caption uppercase tracking-wider text-[hsl(211,100%,40%)] mb-3 min-h-[2.25rem] md:min-h-[2.25rem]">{a.highlight}</p>
+              <h3 className="font-display text-[24px] font-semibold tracking-tight text-foreground mb-3 min-h-[4rem] leading-tight">
                 {a.title}
               </h3>
-              <p className="text-[17px] text-muted-foreground leading-snug">{a.description}</p>
+              <p className="text-[17px] text-muted-foreground leading-snug flex-1">{a.description}</p>
               {a.link && (
                 <a
                   href={a.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-0.5 text-[14px] text-[hsl(211,100%,40%)] hover:underline mt-4"
+                  className="inline-flex items-center gap-0.5 text-[14px] text-[hsl(211,100%,40%)] hover:underline mt-5"
                 >
-                  View on LinkedIn <ArrowUpRight className="w-3.5 h-3.5" />
+                  View <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               )}
             </div>
