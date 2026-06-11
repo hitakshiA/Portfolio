@@ -11,7 +11,10 @@ const Experience = () => {
       isPresent: true,
       logo: prodigalLogo,
       points: [
-        "Building production AI agents at Prodigal (YC S18), an AI platform for consumer finance",
+        "Build AI agents incl. voice AI agents (prompt engineering, testing, iterating, repeat)",
+        "Apply NLP techniques and LLMs for entity recognition, including pattern-based approaches",
+        "Develop internal tools to optimize existing processes and workflows",
+        "Assist in onboarding new customers across all Prodigal products",
       ],
     },
     {
