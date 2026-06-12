@@ -13,7 +13,7 @@ const Experience = () => {
       isPresent: true,
       logo: prodigalLogo,
       points: [
-        "Shipping voice AI agents end-to-end — prompt engineering, evals, and tight iteration loops against real call data",
+        "Shipping voice AI agents end-to-end - prompt engineering, evals, and tight iteration loops against real call data",
         "Building NLP + LLM pipelines for entity recognition, blending pattern-based rules with model-driven extraction",
         "Designing internal tools that cut manual work and streamline how the team ships agents",
         "Partnering on customer onboarding across Prodigal's product suite, turning early feedback into product improvements",
@@ -82,7 +82,7 @@ const Experience = () => {
                 <ul className="space-y-2.5">
                   {exp.points.map((point, i) => (
                     <li key={i} className="text-[17px] text-muted-foreground leading-snug">
-                      — {point}
+                      - {point}
                     </li>
                   ))}
                 </ul>

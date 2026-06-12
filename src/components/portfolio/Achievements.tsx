@@ -4,30 +4,30 @@ const Achievements = () => {
   const achievements = [
     {
       title: "Hedera Apex Hackathon 2026",
-      highlight: "3rd Place — Sustainability Track",
+      highlight: "3rd Place - Sustainability Track",
       description:
-        "Built Hestia under Miny Labs — a wildfire-risk credit ledger on Hedera Guardian that translates wildfire exposure into auditable, on-chain credit data institutions can trust.",
+        "Built Hestia under Miny Labs - a wildfire-risk credit ledger on Hedera Guardian that translates wildfire exposure into auditable, on-chain credit data institutions can trust.",
       link: "https://www.linkedin.com/feed/update/urn:li:activity:7470097398459961345/",
     },
     {
       title: "Novartis NEST 2.0",
-      highlight: "Runner-Up — Grand Finale",
+      highlight: "Runner-Up - Grand Finale",
       description:
         "Led NEXUS CDM, a 5-agent clinical data management platform making pharma data workflows faster, smarter, and more reliable through coordinated AI agents.",
       link: "https://www.linkedin.com/feed/update/urn:li:activity:7468185880160092161/",
     },
     {
       title: "SF Agentic Commerce x402",
-      highlight: "1st Place — SKALE Track",
+      highlight: "1st Place - SKALE Track",
       description:
         "PIXIE, an encrypted AI trading arena where ten autonomous agents execute real DEX swaps with every strategy sealed end-to-end through BITE threshold encryption.",
       link: "https://www.linkedin.com/feed/update/urn:li:activity:7467592677568446464/",
     },
     {
       title: "DomainFi Challenge",
-      highlight: "Track Winner — DoraHacks",
+      highlight: "Track Winner - DoraHacks",
       description:
-        "Won the Trait Scoring & Analytics track with Bella (Project Peter) — an AI intelligence layer using Doma's on-chain data for real-time domain valuations and rarity analytics.",
+        "Won the Trait Scoring & Analytics track with Bella (Project Peter) - an AI intelligence layer using Doma's on-chain data for real-time domain valuations and rarity analytics.",
       link: "https://www.linkedin.com/feed/update/urn:li:activity:7462147931119382528/",
     },
     {
