@@ -23,7 +23,7 @@ const Index = () => {
       <footer className="bg-background border-t border-border">
         <div className="max-w-[1200px] mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-2">
           <p className="text-caption text-muted-foreground">
-            Designed & built by Hitakshi Arora — 2026
+            Designed & built by Hitakshi Arora - 2026
           </p>
           <p className="text-caption text-muted-foreground">
             <a href="mailto:hitakshi220@gmail.com" className="text-[hsl(211,100%,40%)] hover:underline">hitakshi220@gmail.com</a>

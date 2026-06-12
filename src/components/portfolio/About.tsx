@@ -12,7 +12,7 @@ const About = () => {
             <p>
               I'm specializing in <span className="text-foreground">Data Science</span> at SRM
               Institute of Science and Technology, with a focus on building products that solve
-              real problems — from mobile apps to developer tools.
+              real problems - from mobile apps to developer tools.
             </p>
             <p>
               I care about clean architecture, calm interfaces, and code you can read on a

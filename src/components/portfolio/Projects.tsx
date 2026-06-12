@@ -30,7 +30,7 @@ const Projects = () => {
       title: "Loan Demo",
       category: "Voice AI",
       tech: ["TypeScript", "Voice AI", "Video Avatar", "Computer Vision"],
-      description: "Conversational, video-based loan application demo. Customers join a video call with an AI agent named Priya, speak naturally in Hindi, show their PAN card to camera for verification, and receive a personalized loan offer — all in under 7 minutes. No forms, no document uploads, no branch visits.",
+      description: "Conversational, video-based loan application demo. Customers join a video call with an AI agent named Priya, speak naturally in Hindi, show their PAN card to camera for verification, and receive a personalized loan offer - all in under 7 minutes. No forms, no document uploads, no branch visits.",
       github: "https://github.com/hitakshiA/ai-video-loan-onboarding",
       liveUrl: "https://loandemo.vercel.app",
       image: loanDemoScreenshot,
@@ -39,7 +39,7 @@ const Projects = () => {
       title: "id3a",
       category: "Multi Modal AI",
       tech: ["Next.js", "TypeScript", "AI/ML", "Video Generation"],
-      description: "Type one sentence. Get a 60-second narrated pitch video — slides, b-roll, voice, music. Wizard-driven editor with a locked styleSheet, async background renders, and the share link delivered by email.",
+      description: "Type one sentence. Get a 60-second narrated pitch video - slides, b-roll, voice, music. Wizard-driven editor with a locked styleSheet, async background renders, and the share link delivered by email.",
       github: "https://github.com/hitakshiA/id3a",
       liveUrl: null,
       image: id3aScreenshot,
@@ -67,7 +67,7 @@ const Projects = () => {
       title: "AASO",
       category: "TypeScript",
       tech: ["TypeScript", "VS Code API", "Node.js", "Snyk", "SonarQube"],
-      description: "Automated Application Security Optimizer — a VS Code extension that helps developers identify and fix vulnerabilities using Snyk, SonarQube, and AI-powered analysis with Gemini.",
+      description: "Automated Application Security Optimizer - a VS Code extension that helps developers identify and fix vulnerabilities using Snyk, SonarQube, and AI-powered analysis with Gemini.",
       github: "https://github.com/hitakshiA/AASO_Extension",
       liveUrl: null,
       image: aasoScreenshot,
@@ -127,7 +127,7 @@ const Projects = () => {
 
                 <div className={`p-8 md:p-12 flex flex-col justify-center order-2 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
                   <p className="text-caption uppercase tracking-wider text-muted-foreground mb-3">
-                    0{index + 1} — {project.category}
+                    0{index + 1} - {project.category}
                   </p>
                   <h3 className="font-display text-[32px] md:text-[40px] font-bold tracking-tight text-foreground mb-4 leading-tight">
                     {project.title}

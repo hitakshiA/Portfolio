@@ -8,7 +8,7 @@ const Contact = () => {
         </h2>
         <p className="text-sub text-muted-foreground max-w-xl mx-auto mb-10">
           Currently looking for full-time opportunities in software development.
-          Drop a note — I'll get back quickly.
+          Drop a note - I'll get back quickly.
         </p>
         <div className="flex items-center justify-center gap-4">
           <a href="mailto:hitakshi220@gmail.com" className="btn-azure">
