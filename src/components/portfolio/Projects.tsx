@@ -55,7 +55,7 @@ const Projects = () => {
     },
     {
       title: "BigBuddy",
-      category: "Java",
+      category: "Kotlin",
       tech: ["Java", "Android SDK", "XML", "Android Studio"],
       description: "A mentorship and guidance mobile application bridging users with domain experts in mental health, career planning, and skill development.",
       github: "https://github.com/hitakshiA/BIGBUDDY",
