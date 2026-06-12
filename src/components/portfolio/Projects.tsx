@@ -157,24 +157,11 @@ const Projects = () => {
                   onClick={() => project.image && setLightboxImage({ src: project.image, alt: project.title })}
                 >
                   {project.images && project.images.length > 1 ? (
-                    <div className="grid grid-cols-2 gap-0.5 bg-border h-full">
-                      {project.images.map((img, imgIndex) => (
-                        <div
-                          key={imgIndex}
-                          className="bg-background cursor-pointer overflow-hidden"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setLightboxImage({ src: img, alt: `${project.title} ${imgIndex + 1}` });
-                          }}
-                        >
-                          <img
-                            src={img}
-                            alt={`${project.title} screenshot ${imgIndex + 1}`}
-                            className="w-full h-48 md:h-64 object-cover object-top"
-                          />
-                        </div>
-                      ))}
-                    </div>
+                    <BigBuddyCarousel
+                      images={project.images}
+                      title={project.title}
+                      onOpen={(src, alt) => setLightboxImage({ src, alt })}
+                    />
                   ) : project.image ? (
                     <img
                       src={project.image}
