@@ -59,8 +59,14 @@ const Experience = () => {
                       />
                     )}
                     <div>
-                      <h3 className="text-[24px] font-semibold font-display text-foreground tracking-tight">
+                      <h3 className="text-[24px] font-semibold font-display text-foreground tracking-tight flex items-center gap-2 flex-wrap">
                         {exp.org}
+                        {exp.org === "Prodigal Tech" && (
+                          <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-muted-foreground">
+                            <span className="inline-flex items-center justify-center w-[18px] h-[18px] rounded-[3px] bg-[#FF6600] text-white font-bold text-[12px] leading-none font-sans">Y</span>
+                            YC S18
+                          </span>
+                        )}
                       </h3>
                       <p className="text-[17px] text-muted-foreground">{exp.role}</p>
                     </div>
