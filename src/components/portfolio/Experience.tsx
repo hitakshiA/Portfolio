@@ -1,4 +1,4 @@
-import prodigalLogoAsset from "@/assets/prodigal-logo.jpg.asset.json";
+import prodigalLogoAsset from "@/assets/prodigal-logo.png.asset.json";
 import nicLogoAsset from "@/assets/nic-logo.png.asset.json";
 const prodigalLogo = prodigalLogoAsset.url;
 const nicLogo = nicLogoAsset.url;
