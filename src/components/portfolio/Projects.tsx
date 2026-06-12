@@ -10,8 +10,67 @@ const manthanScreenshot = manthanScreenshotAsset.url;
 import loanDemoScreenshotAsset from "@/assets/loan-demo-screenshot.png.asset.json";
 const loanDemoScreenshot = loanDemoScreenshotAsset.url;
 import id3aScreenshot from "@/assets/id3a-screenshot.png";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import ImageLightbox from "./ImageLightbox";
+
+const BigBuddyCarousel = ({
+  images,
+  title,
+  onOpen,
+}: {
+  images: string[];
+  title: string;
+  onOpen: (src: string, alt: string) => void;
+}) => {
+  const [idx, setIdx] = useState(0);
+  const prev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIdx((i) => (i - 1 + images.length) % images.length);
+  };
+  const next = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIdx((i) => (i + 1) % images.length);
+  };
+  return (
+    <div className="relative h-full w-full group/carousel">
+      <img
+        src={images[idx]}
+        alt={`${title} screenshot ${idx + 1}`}
+        onClick={() => onOpen(images[idx], `${title} ${idx + 1}`)}
+        className="w-full h-72 md:h-full md:min-h-[420px] object-cover object-top cursor-pointer"
+      />
+      <button
+        onClick={prev}
+        aria-label="Previous screenshot"
+        className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 backdrop-blur flex items-center justify-center text-foreground opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-white"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        onClick={next}
+        aria-label="Next screenshot"
+        className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 backdrop-blur flex items-center justify-center text-foreground opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-white"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIdx(i);
+            }}
+            aria-label={`Go to screenshot ${i + 1}`}
+            className={`h-1.5 rounded-full transition-all ${
+              i === idx ? "w-6 bg-foreground" : "w-1.5 bg-foreground/40 hover:bg-foreground/60"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const Projects = () => {
   const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
@@ -98,24 +157,11 @@ const Projects = () => {
                   onClick={() => project.image && setLightboxImage({ src: project.image, alt: project.title })}
                 >
                   {project.images && project.images.length > 1 ? (
-                    <div className="grid grid-cols-2 gap-0.5 bg-border h-full">
-                      {project.images.map((img, imgIndex) => (
-                        <div
-                          key={imgIndex}
-                          className="bg-background cursor-pointer overflow-hidden"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setLightboxImage({ src: img, alt: `${project.title} ${imgIndex + 1}` });
-                          }}
-                        >
-                          <img
-                            src={img}
-                            alt={`${project.title} screenshot ${imgIndex + 1}`}
-                            className="w-full h-48 md:h-64 object-cover object-top"
-                          />
-                        </div>
-                      ))}
-                    </div>
+                    <BigBuddyCarousel
+                      images={project.images}
+                      title={project.title}
+                      onOpen={(src, alt) => setLightboxImage({ src, alt })}
+                    />
                   ) : project.image ? (
                     <img
                       src={project.image}
