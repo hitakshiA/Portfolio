@@ -1,5 +1,7 @@
 import prodigalLogoAsset from "@/assets/prodigal-logo.jpg.asset.json";
+import nicLogoAsset from "@/assets/nic-logo.png.asset.json";
 const prodigalLogo = prodigalLogoAsset.url;
+const nicLogo = nicLogoAsset.url;
 
 const Experience = () => {
   const experiences = [
@@ -11,10 +13,10 @@ const Experience = () => {
       isPresent: true,
       logo: prodigalLogo,
       points: [
-        "Build AI agents incl. voice AI agents (prompt engineering, testing, iterating, repeat)",
-        "Apply NLP techniques and LLMs for entity recognition, including pattern-based approaches",
-        "Develop internal tools to optimize existing processes and workflows",
-        "Assist in onboarding new customers across all Prodigal products",
+        "Shipping voice AI agents end-to-end — prompt engineering, evals, and tight iteration loops against real call data",
+        "Building NLP + LLM pipelines for entity recognition, blending pattern-based rules with model-driven extraction",
+        "Designing internal tools that cut manual work and streamline how the team ships agents",
+        "Partnering on customer onboarding across Prodigal's product suite, turning early feedback into product improvements",
       ],
     },
     {
@@ -23,24 +25,11 @@ const Experience = () => {
       role: "Data Engineering Intern",
       period: "June 2025 – August 2025",
       isPresent: false,
-      logo: null,
+      logo: nicLogo,
       points: [
         "Engineered data pipelines handling 4 TB/day, ensuring reliable data flow across systems",
         "Reduced system downtime by 35% through proactive monitoring and optimization",
         "Improved ETL processing speed by 45% by refactoring legacy transformation scripts",
-      ],
-    },
-    {
-      year: "2025",
-      org: "ISTE Delhi NCR Campus",
-      role: "Technical Team Lead",
-      period: "Present",
-      isPresent: false,
-      logo: null,
-      points: [
-        "Leading a team of developers to build technical solutions and organize events",
-        "Mentoring junior members on best practices in software development",
-        "Coordinating technical workshops and hackathons for the campus community",
       ],
     },
   ];
