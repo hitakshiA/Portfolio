@@ -76,7 +76,7 @@ const BigBuddyCarousel = ({
             key={i}
             onClick={(e) => {
               e.stopPropagation();
-              setIdx(i);
+              change(i);
             }}
             aria-label={`Go to screenshot ${i + 1}`}
             className={`h-1.5 rounded-full transition-all ${
