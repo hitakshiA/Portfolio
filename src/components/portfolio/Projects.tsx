@@ -32,12 +32,12 @@ const BigBuddyCarousel = ({
     setIdx((i) => (i + 1) % images.length);
   };
   return (
-    <div className="relative h-full w-full group/carousel">
+    <div className="relative h-full w-full group/carousel bg-background flex items-center justify-center">
       <img
         src={images[idx]}
         alt={`${title} screenshot ${idx + 1}`}
         onClick={() => onOpen(images[idx], `${title} ${idx + 1}`)}
-        className="w-full h-72 md:h-full md:min-h-[420px] object-cover object-top cursor-pointer"
+        className="w-auto h-72 md:h-[420px] max-w-full object-contain cursor-pointer"
       />
       <button
         onClick={prev}
