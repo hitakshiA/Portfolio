@@ -23,22 +23,39 @@ const BigBuddyCarousel = ({
   onOpen: (src: string, alt: string) => void;
 }) => {
   const [idx, setIdx] = useState(0);
+  const [loaded, setLoaded] = useState<Record<number, boolean>>({ 0: true });
+  const change = (next: number) => {
+    if (!loaded[next]) {
+      // preload
+      const img = new Image();
+      img.src = images[next];
+      img.onload = () => setLoaded((l) => ({ ...l, [next]: true }));
+    }
+    setIdx(next);
+  };
   const prev = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setIdx((i) => (i - 1 + images.length) % images.length);
+    change((idx - 1 + images.length) % images.length);
   };
   const next = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setIdx((i) => (i + 1) % images.length);
+    change((idx + 1) % images.length);
   };
+  const isLoading = !loaded[idx];
   return (
     <div className="relative h-full w-full group/carousel bg-background flex items-center justify-center">
       <img
         src={images[idx]}
         alt={`${title} screenshot ${idx + 1}`}
         onClick={() => onOpen(images[idx], `${title} ${idx + 1}`)}
-        className="w-auto h-72 md:h-[420px] max-w-full object-contain cursor-pointer"
+        onLoad={() => setLoaded((l) => ({ ...l, [idx]: true }))}
+        className={`w-auto h-72 md:h-[420px] max-w-full object-contain cursor-pointer transition-opacity duration-200 ${isLoading ? "opacity-0" : "opacity-100"}`}
       />
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-full border-2 border-foreground/20 border-t-foreground animate-spin" />
+        </div>
+      )}
       <button
         onClick={prev}
         aria-label="Previous screenshot"
@@ -59,7 +76,7 @@ const BigBuddyCarousel = ({
             key={i}
             onClick={(e) => {
               e.stopPropagation();
-              setIdx(i);
+              change(i);
             }}
             aria-label={`Go to screenshot ${i + 1}`}
             className={`h-1.5 rounded-full transition-all ${
