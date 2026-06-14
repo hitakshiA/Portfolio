@@ -38,10 +38,11 @@ const Achievements = () => {
       link: "https://www.researchgate.net/publication/400601859_A_Memetic-Enhanced_Glowworm_Swarm_Optimization_Algorithm_with_Adaptive_Particle_Refinement_for_Secure_and_Privacy-Aware_Medical_Cloud_Computing",
     },
     {
-      title: "SBI Life Hack-AI-Thon",
-      highlight: "Top 16 of 7,500+",
-      description: "Reached the finals of the national AI hackathon competition.",
-      link: "https://www.linkedin.com/posts/hitakshiaroraa_hacksmiths-cybersecurity-hackathonjourney-activity-7346578675435261953-cCwT",
+      title: "Pirates of the Coral-Bean Hackathon",
+      highlight: "Track 1 Winner",
+      description:
+        "Won Track 1 with Manthan, an autonomous agent that resolves B2B chargebacks in under 60 seconds by reading Stripe, CRM, product logs, and support inbox in parallel with one-click approval.",
+      link: "https://x.com/WeMakeDevs/status/2065792381019128011?s=20",
     },
   ];
 
