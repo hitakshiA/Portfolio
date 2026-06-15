@@ -170,8 +170,11 @@ const Projects = () => {
             <article key={project.title} className="surface-card overflow-hidden">
               <div className="grid md:grid-cols-2 gap-0 items-stretch">
                 <div
-                  className={`bg-background cursor-pointer order-1 ${index % 2 === 1 ? 'md:order-2' : ''}`}
-                  onClick={() => project.image && setLightboxImage({ src: project.image, alt: project.title })}
+                  className={`bg-background order-1 ${project.images && project.images.length > 1 ? '' : 'cursor-pointer'} ${index % 2 === 1 ? 'md:order-2' : ''}`}
+                  onClick={() => {
+                    if (project.images && project.images.length > 1) return;
+                    if (project.image) setLightboxImage({ src: project.image, alt: project.title });
+                  }}
                 >
                   {project.images && project.images.length > 1 ? (
                     <BigBuddyCarousel
