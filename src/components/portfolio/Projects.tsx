@@ -99,7 +99,7 @@ const Projects = () => {
       tech: ["TypeScript", "FastAPI", "AI Agent", "Data Analysis"],
       description: "Billing Ops Agent for Enterprises. Connects to your Stripe, CRM, and Customer Support to automate billing disputes.",
       github: "https://github.com/hitakshiA/Manthan",
-      liveUrl: "https://manthan.quest",
+      liveUrl: "https://manthan-ui.vercel.app",
       image: manthanScreenshot,
     },
     {
