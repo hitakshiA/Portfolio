@@ -108,7 +108,7 @@ const Projects = () => {
       tech: ["TypeScript", "Voice AI", "Video Avatar", "Computer Vision"],
       description: "Conversational, video-based loan application demo. Customers join a video call with an AI agent named Priya, speak naturally in Hindi, show their PAN card to camera for verification, and receive a personalized loan offer - all in under 7 minutes. No forms, no document uploads, no branch visits.",
       github: "https://github.com/hitakshiA/ai-video-loan-onboarding",
-      liveUrl: "https://loandemo.vercel.app",
+      liveUrl: null,
       image: loanDemoScreenshot,
     },
     {
