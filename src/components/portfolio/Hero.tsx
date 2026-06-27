@@ -11,7 +11,7 @@ const Hero = () => {
           content="Portfolio of Hitakshi Arora — AI agent engineer and software developer shipping autonomous systems, multi-agent workflows, and production AI products."
         />
         <link rel="canonical" href="https://hitakshii.lovable.app/" />
-        <meta property="og:title" content="Hitakshi Arora — AI Agent Engineer & Software Developer" />
+        <meta property="og:title" content="Hitakshi Arora" />
         <meta
           property="og:description"
           content="Portfolio of Hitakshi Arora — AI agent engineer and software developer shipping autonomous systems and production AI products."
