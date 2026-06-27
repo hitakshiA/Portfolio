@@ -1,0 +1,8 @@
+# Hitakshi Arora — Portfolio
+
+> Portfolio of Hitakshi Arora, AI agent engineer and software developer shipping autonomous systems, multi-agent workflows, and production AI products.
+
+## Pages
+
+- [Home](/): About, skills, experience, featured projects, achievements, and contact.
+- [Resume](/resume): Full professional resume (PDF).
