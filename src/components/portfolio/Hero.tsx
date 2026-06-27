@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-[100svh] flex items-center pt-24 pb-12">
       <Helmet>
-        <title>Hitakshi Arora — AI Agent Engineer & Software Developer</title>
+        <title>Hitakshi Arora</title>
         <meta
           name="description"
           content="Portfolio of Hitakshi Arora — AI agent engineer and software developer shipping autonomous systems, multi-agent workflows, and production AI products."
