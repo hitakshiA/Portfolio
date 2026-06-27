@@ -29,7 +29,7 @@ const Hero = () => {
           <a href="/resume" className="text-[hsl(211,100%,40%)] hover:underline">Resume</a>
         </div>
         <h1 className="text-display font-display text-foreground mb-8">
-          Hitakshi Arora — AI Agent Engineer & Software Developer
+          Hitakshi Arora
         </h1>
 
         <div className="mx-auto w-full max-w-[1100px]">
